@@ -9,7 +9,7 @@ export type ECRPullThroughCacheRuleProperties = {
    * The ARN of the Secrets Manager secret associated with the pull through cache rule.
    * @minLength `50`
    * @maxLength `612`
-   * @pattern `^arn:aws:secretsmanager:[a-zA-Z0-9-:]+:secret:ecr\-pullthroughcache\/[a-zA-Z0-9\/_+=.@-]+$`
+   * @pattern `^arn:[a-zA-Z-]+:secretsmanager:[a-zA-Z0-9-:]+:secret:ecr\-pullthroughcache\/[a-zA-Z0-9\/_+=.@-]+$`
    */
   CredentialArn?: string;
   /**

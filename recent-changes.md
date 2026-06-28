@@ -1,27 +1,2 @@
-- added `AWS::QuickSight::Flow`
-- removed `AWS::BedrockAgentCore::TokenVault`
-- removed `AWS::CodeBuild::Build`
-- removed `AWS::CodeBuild::BuildBatch`
-- removed `AWS::ControlCatalog::CommonControl`
-- removed `AWS::ControlCatalog::Control`
-- removed `AWS::DataExchange::EntitledDataSets`
-- removed `AWS::DynamoDB::Stream`
-- removed `AWS::Glue::Session`
-- removed `AWS::IoT::Index`
-- removed `AWS::PartnerCentral::ConnectionPreferences`
-- removed `AWS::Personalize::DataDeletionJob`
-- removed `AWS::QuickSight::AssetBundleExportJob`
-- removed `AWS::QuickSight::AssetBundleImportJob`
-- removed `AWS::RDS::ReservedDBInstance`
-- removed `AWS::Route53Resolver::FirewallConfig`
-- removed `AWS::SavingsPlans::SavingsPlan`
-- updated `AWS::Glue::DataCatalogEncryptionSettings`
-  - added `tagging`
-  - removed `readOnlyProperties`
-  - removed property `Id`
-  - updated `primaryIdentifier`
-  - updated definition `ConnectionPasswordEncryption`
-  - updated definition `DataCatalogEncryptionSettings`
-  - updated definition `EncryptionAtRest`
-  - updated handler permissions
-  - updated property `CatalogId`
+- updated `AWS::ECR::PullThroughCacheRule`
+  - updated definition `CredentialArn`
