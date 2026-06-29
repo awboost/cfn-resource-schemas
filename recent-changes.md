@@ -1,2 +1,2 @@
-- updated `AWS::ECR::PullThroughCacheRule`
-  - updated definition `CredentialArn`
+- updated `AWS::OpenSearchServerless::Collection`
+  - updated handler permissions

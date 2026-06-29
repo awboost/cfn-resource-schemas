@@ -1,5 +1,5 @@
 {
-  "$hash": "5e4ea2394693ed9bfaae9f07127f4be4d67fbdbb",
+  "$hash": "dff1b773f2784d0fa57882b47f589fd834ad9ebc",
   "$id": "aws-opensearchserverless-collection.json",
   "additionalIdentifiers": [["/properties/Name"], ["/properties/Arn"]],
   "additionalProperties": false,
@@ -93,6 +93,7 @@
         "aoss:CreateCollection",
         "aoss:BatchGetCollection",
         "aoss:AddCollectionToCollectionGroup",
+        "aoss:TagResource",
         "iam:CreateServiceLinkedRole",
         "kms:CreateGrant",
         "kms:DescribeKey"
@@ -102,7 +103,9 @@
       "permissions": ["aoss:DeleteCollection", "aoss:BatchGetCollection"]
     },
     "list": { "permissions": ["aoss:ListCollections"] },
-    "read": { "permissions": ["aoss:BatchGetCollection"] },
+    "read": {
+      "permissions": ["aoss:BatchGetCollection", "aoss:ListTagsForResource"]
+    },
     "update": {
       "permissions": ["aoss:UpdateCollection", "aoss:BatchGetCollection"]
     }
