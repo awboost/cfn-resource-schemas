@@ -10,6 +10,10 @@ export type AppStreamStackProperties = {
    */
   AccessEndpoints?: AccessEndpoint[];
   /**
+   * The configuration for agent access on the stack. If specified, agent access is enabled for the stack.
+   */
+  AgentAccessConfig?: AgentAccessConfig;
+  /**
    * The persistent application settings for users of the stack. When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session.
    */
   ApplicationSettings?: ApplicationSettings;
@@ -82,6 +86,52 @@ export type AccessEndpoint = {
   VpceId: string;
 };
 /**
+ * Type definition for `AWS::AppStream::Stack.AgentAccessConfig`.
+ * The configuration for agent access on a stack. Agent access enables AI agents to interact with desktop applications during streaming sessions.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-agentaccessconfig.html}
+ */
+export type AgentAccessConfig = {
+  /**
+   * The Amazon Resource Name (ARN) of the Amazon S3 bucket where agent screenshots are stored. Required when ScreenshotsUploadEnabled is true.
+   */
+  S3BucketArn?: string;
+  /**
+   * The image format for agent screen captures.
+   */
+  ScreenImageFormat: string;
+  /**
+   * The screen resolution for the agent streaming environment.
+   */
+  ScreenResolution: string;
+  /**
+   * Indicates whether screenshot uploads to Amazon S3 are enabled for agent sessions.
+   */
+  ScreenshotsUploadEnabled?: boolean;
+  /**
+   * The list of agent access settings that define permissions for each agent action. You must specify at least one setting.
+   */
+  Settings: AgentAccessSetting[];
+  /**
+   * The user control mode for agent sessions. This setting determines how users can interact with agent sessions. Valid values are VIEW_ONLY, VIEW_STOP, and DISABLED.
+   */
+  UserControlMode?: string;
+};
+/**
+ * Type definition for `AWS::AppStream::Stack.AgentAccessSetting`.
+ * A permission setting for an agent action. Each setting specifies an agent action and whether it is enabled or disabled.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-agentaccesssetting.html}
+ */
+export type AgentAccessSetting = {
+  /**
+   * The agent action to configure. Valid values are COMPUTER_VISION, COMPUTER_INPUT, and FORWARD_MCP_TOOLS. COMPUTER_VISION allows agents to take screenshots of the desktop. COMPUTER_INPUT allows agents to click, type, and scroll on the desktop and requires COMPUTER_VISION to also be enabled. FORWARD_MCP_TOOLS allows agents to interact with applications and the desktop operating system through direct MCP calls rather than using computer use tools. Forwards MCP tools configured on the WorkSpaces application session to the agent.
+   */
+  AgentAction: string;
+  /**
+   * Whether the agent action is enabled or disabled.
+   */
+  Permission: string;
+};
+/**
  * Type definition for `AWS::AppStream::Stack.ApplicationSettings`.
  * The persistent application settings for users of a stack.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-applicationsettings.html}
@@ -92,7 +142,7 @@ export type ApplicationSettings = {
    */
   Enabled: boolean;
   /**
-   * The path prefix for the S3 bucket where users’ persistent application settings are stored. You can allow the same persistent application settings to be used across multiple stacks by specifying the same settings group for each stack.
+   * The path prefix for the S3 bucket where users' persistent application settings are stored. You can allow the same persistent application settings to be used across multiple stacks by specifying the same settings group for each stack.
    */
   SettingsGroup?: string;
 };

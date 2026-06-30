@@ -1,5 +1,5 @@
 {
-  "$hash": "301b86b45f66bd894050186f7ced6fcfccdeb2b0",
+  "$hash": "80109a407e1119f6eac4fd51f1ef59ae302e8d6a",
   "$id": "aws-connect-viewversion.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -29,7 +29,7 @@
       "description": "The description for the view version.",
       "maxLength": 4096,
       "minLength": 1,
-      "pattern": "^([\\p{L}\\p{N}_.:\\/=+\\-@,]+[\\p{L}\\p{Z}\\p{N}_.:\\/=+\\-@,]*)$",
+      "pattern": "^([\\p{L}\\p{N}_.:\\/=+\\-@,()']+[\\p{L}\\p{Z}\\p{N}_.:\\/=+\\-@,()']*)$",
       "type": "string"
     },
     "ViewArn": {

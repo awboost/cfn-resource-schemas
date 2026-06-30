@@ -1,5 +1,5 @@
 {
-  "$hash": "1790feb09789603248dca4f88bd775340d572f1f",
+  "$hash": "7b7214c6b2178f37ca8405b01fc38ca6e2ae5671",
   "$id": "aws-config-remediationconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ConfigRuleName"],
@@ -19,12 +19,37 @@
     }
   },
   "description": "Resource Type definition for AWS::Config::RemediationConfiguration",
-  "primaryIdentifier": ["/properties/Id"],
+  "handlers": {
+    "create": {
+      "permissions": [
+        "config:DescribeRemediationConfigurations",
+        "config:PutRemediationConfigurations",
+        "iam:PassRole",
+        "iam:CreateServiceLinkedRole"
+      ]
+    },
+    "delete": { "permissions": ["config:DeleteRemediationConfiguration"] },
+    "list": {
+      "permissions": [
+        "config:DescribeRemediationConfigurations",
+        "config:DescribeConfigRules"
+      ]
+    },
+    "read": { "permissions": ["config:DescribeRemediationConfigurations"] },
+    "update": {
+      "permissions": [
+        "config:PutRemediationConfigurations",
+        "config:DescribeRemediationConfigurations",
+        "iam:PassRole",
+        "iam:CreateServiceLinkedRole"
+      ]
+    }
+  },
+  "primaryIdentifier": ["/properties/ConfigRuleName"],
   "properties": {
     "Automatic": { "type": "boolean" },
     "ConfigRuleName": { "type": "string" },
     "ExecutionControls": { "$ref": "#/definitions/ExecutionControls" },
-    "Id": { "type": "string" },
     "MaximumAutomaticAttempts": { "type": "integer" },
     "Parameters": { "type": "object" },
     "ResourceType": { "type": "string" },
@@ -33,7 +58,7 @@
     "TargetType": { "type": "string" },
     "TargetVersion": { "type": "string" }
   },
-  "readOnlyProperties": ["/properties/Id"],
   "required": ["TargetType", "ConfigRuleName", "TargetId"],
+  "tagging": { "taggable": false },
   "typeName": "AWS::Config::RemediationConfiguration"
 }

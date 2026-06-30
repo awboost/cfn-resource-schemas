@@ -274,11 +274,23 @@ export type EvaluationFormMultiSelectQuestionAutomationOption = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformmultiselectquestionoption.html}
  */
 export type EvaluationFormMultiSelectQuestionOption = {
+  AutomaticFail?: boolean;
+  /**
+   * Information about automatic fail configuration for an evaluation form.
+   */
+  AutomaticFailConfiguration?: AutomaticFailConfiguration;
+  PointsConfiguration?: QuestionOptionPointsConfiguration;
   /**
    * Reference identifier for this option.
    * @pattern `^[a-zA-Z0-9._-]{1,40}$`
    */
   RefId: string;
+  /**
+   * The score of an answer option.
+   * @min `0`
+   * @max `10`
+   */
+  Score?: number;
   /**
    * Display text for this option.
    * @minLength `1`
@@ -344,6 +356,7 @@ export type EvaluationFormNumericQuestionOption = {
    * The minimum answer value of the range option.
    */
   MinValue: number;
+  PointsConfiguration?: QuestionOptionPointsConfiguration;
   /**
    * The score assigned to answer values within the range option.
    *Minimum*: 0
@@ -418,6 +431,7 @@ export type EvaluationFormQuestion = {
    * @pattern `^[a-zA-Z0-9._-]{1,40}$`
    */
   RefId: string;
+  ScoringConfiguration?: EvaluationFormQuestionScoringConfiguration;
   /**
    * The title of the question.
    *Length Constraints*: Minimum length of 1. Maximum length of 350.
@@ -446,6 +460,24 @@ export type EvaluationFormQuestionAutomationAnswerSource = {
   SourceType: "CONTACT_LENS_DATA" | "GEN_AI";
 };
 /**
+ * Type definition for `AWS::Connect::EvaluationForm.EvaluationFormQuestionScoringConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformquestionscoringconfiguration.html}
+ */
+export type EvaluationFormQuestionScoringConfiguration = {
+  /**
+   * Whether the question is excluded from scoring.
+   */
+  IsExcludedFromScoring?: boolean;
+  /**
+   * The points configuration for the question.
+   */
+  PointsConfiguration?: QuestionPointsConfiguration;
+  /**
+   * The score thresholds for the question.
+   */
+  ScoreThresholds?: EvaluationFormScoreThreshold[];
+};
+/**
  * Type definition for `AWS::Connect::EvaluationForm.EvaluationFormQuestionTypeProperties`.
  * Information about properties for a question in an evaluation form. The question type properties must be either for a numeric question or a single select question.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformquestiontypeproperties.html}
@@ -469,6 +501,28 @@ export type EvaluationFormQuestionTypeProperties = {
   Text?: EvaluationFormTextQuestionProperties;
 };
 /**
+ * Type definition for `AWS::Connect::EvaluationForm.EvaluationFormScoreThreshold`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformscorethreshold.html}
+ */
+export type EvaluationFormScoreThreshold = {
+  /**
+   * The maximum score percentage for this threshold.
+   * @min `0`
+   * @max `100`
+   */
+  MaxScorePercentage?: number;
+  /**
+   * The minimum score percentage for this threshold.
+   * @min `0`
+   * @max `100`
+   */
+  MinScorePercentage?: number;
+  /**
+   * The performance category name.
+   */
+  PerformanceCategory: "NEEDS_IMPROVEMENT" | "EXCEEDS_EXPECTATIONS";
+};
+/**
  * Type definition for `AWS::Connect::EvaluationForm.EvaluationFormSection`.
  * Information about a section from an evaluation form. A section can contain sections and/or questions. Evaluation forms can only contain sections and subsections (two level nesting).
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsection.html}
@@ -479,6 +533,7 @@ export type EvaluationFormSection = {
    * @maxLength `1024`
    */
   Instructions?: string;
+  IsExcludedFromScoring?: boolean;
   /**
    * The items of the section.
    *Minimum*: 1
@@ -492,6 +547,7 @@ export type EvaluationFormSection = {
    * @pattern `^[a-zA-Z0-9._-]{1,40}$`
    */
   RefId: string;
+  ScoreThresholds?: EvaluationFormScoreThreshold[];
   /**
    * The title of the section.
    *Length Constraints*: Minimum length of 1. Maximum length of 128.
@@ -558,6 +614,7 @@ export type EvaluationFormSingleSelectQuestionOption = {
    * Whether automatic fail is configured on a single select question.
    */
   AutomaticFailConfiguration?: AutomaticFailConfiguration;
+  PointsConfiguration?: QuestionOptionPointsConfiguration;
   /**
    * The identifier of the answer option. An identifier must be unique within the question.
    *Length Constraints*: Minimum length of 1. Maximum length of 40.
@@ -726,6 +783,44 @@ export type NumericQuestionPropertyValueAutomation = {
     | "CUSTOMER_SENTIMENT_SCORE_WITH_AGENT";
 };
 /**
+ * Type definition for `AWS::Connect::EvaluationForm.QuestionOptionPointsConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-questionoptionpointsconfiguration.html}
+ */
+export type QuestionOptionPointsConfiguration = {
+  /**
+   * Whether this option is a bonus. Note: Bonus options are not supported for multi-select questions. This property should only be set to true for single-select and numeric question options.
+   */
+  IsBonus?: boolean;
+  /**
+   * The point value assigned to this option.
+   * @min `0`
+   * @max `100`
+   */
+  PointValue: number;
+};
+/**
+ * Type definition for `AWS::Connect::EvaluationForm.QuestionPointsConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-questionpointsconfiguration.html}
+ */
+export type QuestionPointsConfiguration = {
+  /**
+   * Whether the question is a bonus question.
+   */
+  IsBonus?: boolean;
+  /**
+   * The maximum point value for the question.
+   * @min `0`
+   * @max `100`
+   */
+  MaxPointValue?: number;
+  /**
+   * The minimum point value for the question.
+   * @min `0`
+   * @max `100`
+   */
+  MinPointValue?: number;
+};
+/**
  * Type definition for `AWS::Connect::EvaluationForm.ScoringStrategy`.
  * A scoring strategy of the evaluation form.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-scoringstrategy.html}
@@ -735,7 +830,8 @@ export type ScoringStrategy = {
    * The scoring mode of the evaluation form.
    *Allowed values*: ``QUESTION_ONLY`` | ``SECTION_ONLY``
    */
-  Mode: "QUESTION_ONLY" | "SECTION_ONLY";
+  Mode: "QUESTION_ONLY" | "SECTION_ONLY" | "POINTS_BASED";
+  ScoreThresholds?: EvaluationFormScoreThreshold[];
   /**
    * The scoring status of the evaluation form.
    *Allowed values*: ``ENABLED`` | ``DISABLED``

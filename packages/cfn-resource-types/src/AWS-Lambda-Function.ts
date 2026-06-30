@@ -217,6 +217,7 @@ export type Code = {
    * @maxLength `1024`
    */
   S3Key?: string;
+  S3ObjectStorageMode?: "COPY" | "REFERENCE";
   /**
    * For versioned objects, the version of the deployment package object to use.
    * @minLength `1`

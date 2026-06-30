@@ -1,5 +1,5 @@
 {
-  "$hash": "f6840dd6e62a0b8462ce71eba469e203ba646799",
+  "$hash": "218bc9a7a1e1136d3f1d95ceda6e2e5eacc79060",
   "$id": "aws-codepipeline-customactiontype.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -196,5 +196,8 @@
     "taggable": true
   },
   "typeName": "AWS::CodePipeline::CustomActionType",
-  "writeOnlyProperties": ["/properties/ConfigurationProperties/*/Type"]
+  "writeOnlyProperties": [
+    "/properties/ConfigurationProperties/*/Type",
+    "/properties/Settings/ThirdPartyConfigurationUrl"
+  ]
 }

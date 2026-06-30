@@ -1,5 +1,5 @@
 {
-  "$hash": "42b80d2831ce155620b11e1498f53dfda397b399",
+  "$hash": "c047d8776b046548d4506da693a86ae4c3fc41e6",
   "$id": "aws-securityagent-agentspace.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/KmsKeyId"],
@@ -47,6 +47,37 @@
       },
       "type": "object"
     },
+    "BitbucketCapabilitiesResource": {
+      "additionalProperties": false,
+      "description": "Bitbucket repository capabilities",
+      "properties": {
+        "LeaveComments": {
+          "description": "Enables Code Review in the repository",
+          "type": "boolean"
+        },
+        "RemediateCode": {
+          "description": "Enables creation of pull requests with automated fixes",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "BitbucketRepositoryResource": {
+      "additionalProperties": false,
+      "description": "Bitbucket repository details",
+      "properties": {
+        "Name": {
+          "description": "Bitbucket repository name",
+          "type": "string"
+        },
+        "Workspace": {
+          "description": "Bitbucket workspace slug owning the repository",
+          "type": "string"
+        }
+      },
+      "required": ["Name", "Workspace"],
+      "type": "object"
+    },
     "CodeReviewSettings": {
       "additionalProperties": false,
       "description": "Details of code review settings",
@@ -61,6 +92,53 @@
         }
       },
       "required": ["ControlsScanning", "GeneralPurposeScanning"],
+      "type": "object"
+    },
+    "ConfluenceCapabilitiesResource": {
+      "additionalProperties": false,
+      "description": "Confluence document capabilities",
+      "properties": {
+        "CreateDocument": {
+          "description": "Enables creation of new Confluence documents in the same space",
+          "type": "boolean"
+        },
+        "FetchDocument": {
+          "description": "Enables read access to the document content",
+          "type": "boolean"
+        },
+        "UpdateDocument": {
+          "description": "Enables updates to the document",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "ConfluenceDocumentResource": {
+      "additionalProperties": false,
+      "description": "Confluence document details",
+      "properties": {
+        "Name": {
+          "description": "Customer-supplied logical name for the Confluence document",
+          "type": "string"
+        },
+        "PageId": {
+          "description": "Confluence page identifier",
+          "type": "string"
+        },
+        "SpaceKey": {
+          "description": "Confluence space key containing the document",
+          "type": "string"
+        },
+        "SpaceTitle": {
+          "description": "Read-only human-readable title of the containing space, populated from service-side metadata",
+          "type": "string"
+        },
+        "Title": {
+          "description": "Read-only human-readable title of the page, populated from service-side metadata",
+          "type": "string"
+        }
+      },
+      "required": ["Name", "SpaceKey", "PageId"],
       "type": "object"
     },
     "GitHubCapabilitiesResource": {
@@ -92,6 +170,34 @@
       "required": ["Name", "Owner"],
       "type": "object"
     },
+    "GitLabCapabilitiesResource": {
+      "additionalProperties": false,
+      "description": "GitLab repository capabilities",
+      "properties": {
+        "LeaveComments": {
+          "description": "Enables Code Review in the repository",
+          "type": "boolean"
+        },
+        "RemediateCode": {
+          "description": "Enables creation of merge requests with automated fixes",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "GitLabRepositoryResource": {
+      "additionalProperties": false,
+      "description": "GitLab repository details",
+      "properties": {
+        "Name": { "description": "GitLab project name", "type": "string" },
+        "Namespace": {
+          "description": "GitLab project namespace (user, group, or subgroup path)",
+          "type": "string"
+        }
+      },
+      "required": ["Name", "Namespace"],
+      "type": "object"
+    },
     "IntegratedResource": {
       "additionalProperties": false,
       "description": "Integrated Resource details",
@@ -119,15 +225,47 @@
     "ProviderResource": {
       "additionalProperties": false,
       "allOf": [
-        { "oneOf": [{ "required": ["GitHubRepository"] }] },
-        { "oneOf": [{ "required": ["GitHubCapabilities"] }] }
+        {
+          "oneOf": [
+            { "required": ["GitHubRepository"] },
+            { "required": ["GitLabRepository"] },
+            { "required": ["BitbucketRepository"] },
+            { "required": ["ConfluenceDocument"] }
+          ]
+        },
+        {
+          "oneOf": [
+            { "required": ["GitHubCapabilities"] },
+            { "required": ["GitLabCapabilities"] },
+            { "required": ["BitbucketCapabilities"] },
+            { "required": ["ConfluenceCapabilities"] }
+          ]
+        }
       ],
-      "description": "Selected Resource (eg: Code Repository) from an Integration",
+      "description": "Selected Resource (eg: Code Repository, Document) from an Integration",
       "properties": {
+        "BitbucketCapabilities": {
+          "$ref": "#/definitions/BitbucketCapabilitiesResource"
+        },
+        "BitbucketRepository": {
+          "$ref": "#/definitions/BitbucketRepositoryResource"
+        },
+        "ConfluenceCapabilities": {
+          "$ref": "#/definitions/ConfluenceCapabilitiesResource"
+        },
+        "ConfluenceDocument": {
+          "$ref": "#/definitions/ConfluenceDocumentResource"
+        },
         "GitHubCapabilities": {
           "$ref": "#/definitions/GitHubCapabilitiesResource"
         },
-        "GitHubRepository": { "$ref": "#/definitions/GitHubRepositoryResource" }
+        "GitHubRepository": {
+          "$ref": "#/definitions/GitHubRepositoryResource"
+        },
+        "GitLabCapabilities": {
+          "$ref": "#/definitions/GitLabCapabilitiesResource"
+        },
+        "GitLabRepository": { "$ref": "#/definitions/GitLabRepositoryResource" }
       },
       "type": "object"
     },
@@ -267,7 +405,9 @@
   "readOnlyProperties": [
     "/properties/AgentSpaceId",
     "/properties/CreatedAt",
-    "/properties/UpdatedAt"
+    "/properties/UpdatedAt",
+    "/properties/IntegratedResources/*/ProviderResources/*/ConfluenceDocument/Title",
+    "/properties/IntegratedResources/*/ProviderResources/*/ConfluenceDocument/SpaceTitle"
   ],
   "required": ["Name"],
   "tagging": {

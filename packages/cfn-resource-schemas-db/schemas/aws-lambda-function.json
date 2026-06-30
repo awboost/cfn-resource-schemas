@@ -1,5 +1,5 @@
 {
-  "$hash": "71944b2a603bfc95b126df91905bc1f872bdca7a",
+  "$hash": "31acbd1c5b30d496be2402951971e2146a921c2a",
   "$id": "aws-lambda-function.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": ["/properties/DurableConfig"],
@@ -40,6 +40,11 @@
           "description": "The Amazon S3 key of the deployment package.",
           "maxLength": 1024,
           "minLength": 1,
+          "type": "string"
+        },
+        "S3ObjectStorageMode": {
+          "description": "",
+          "enum": ["COPY", "REFERENCE"],
           "type": "string"
         },
         "S3ObjectVersion": {
@@ -382,10 +387,8 @@
         "s3files:ListMountTargets",
         "kms:CreateGrant",
         "kms:Decrypt",
-        "kms:DescribeKey",
         "kms:Encrypt",
         "kms:GenerateDataKey",
-        "kms:GenerateDataKeyWithoutPlaintext",
         "lambda:GetCodeSigningConfig",
         "lambda:GetFunctionCodeSigningConfig",
         "lambda:GetLayerVersion",
@@ -435,9 +438,7 @@
         "s3files:ListMountTargets",
         "kms:CreateGrant",
         "kms:Decrypt",
-        "kms:DescribeKey",
         "kms:GenerateDataKey",
-        "kms:GenerateDataKeyWithoutPlaintext",
         "lambda:GetRuntimeManagementConfig",
         "lambda:PutRuntimeManagementConfig",
         "lambda:PutFunctionCodeSigningConfig",
@@ -631,6 +632,7 @@
     "/properties/Code/S3ObjectVersion",
     "/properties/Code/ZipFile",
     "/properties/Code/SourceKMSKeyArn",
+    "/properties/Code/S3ObjectStorageMode",
     "/properties/PublishToLatestPublished"
   ]
 }

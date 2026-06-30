@@ -9,7 +9,7 @@ export type ConnectViewVersionProperties = {
    * The description for the view version.
    * @minLength `1`
    * @maxLength `4096`
-   * @pattern `^([\p{L}\p{N}_.:\/=+\-@,]+[\p{L}\p{Z}\p{N}_.:\/=+\-@,]*)$`
+   * @pattern `^([\p{L}\p{N}_.:\/=+\-@,()']+[\p{L}\p{Z}\p{N}_.:\/=+\-@,()']*)$`
    */
   VersionDescription?: string;
   /**

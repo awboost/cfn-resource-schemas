@@ -31,6 +31,9 @@ export type LambdaCapacityProviderProperties = {
    * The permissions configuration for the capacity provider.
    */
   PermissionsConfig: CapacityProviderPermissionsConfig;
+  /**
+   * Configuration for tag propagation to managed resources launched by the capacity provider.
+   */
   PropagateTags?: PropagateTagsConfig;
   /**
    * A key-value pair that provides metadata for the capacity provider.
@@ -70,15 +73,11 @@ export type Architecture = "x86_64" | "arm64";
  */
 export type CapacityProviderLoggingConfig = {
   /**
-   * The log group name.
    * @minLength `1`
    * @maxLength `512`
    * @pattern `[\.\-_/#A-Za-z0-9]+`
    */
   LogGroup?: string;
-  /**
-   * System log granularity level
-   */
   SystemLogLevel?: "DEBUG" | "INFO" | "WARN";
 };
 /**
@@ -146,9 +145,6 @@ export type CapacityProviderState =
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-capacityprovider-capacityprovidertelemetryconfig.html}
  */
 export type CapacityProviderTelemetryConfig = {
-  /**
-   * The logging configuration for the capacity provider.
-   */
   LoggingConfig?: CapacityProviderLoggingConfig;
 };
 /**
@@ -197,16 +193,18 @@ export type InstanceRequirements = {
 };
 /**
  * Type definition for `AWS::Lambda::CapacityProvider.PropagateTagsConfig`.
+ * Configuration that defines how tags are propagated to managed resources.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-capacityprovider-propagatetagsconfig.html}
  */
 export type PropagateTagsConfig = {
   /**
+   * A list of tags to explicitly propagate to managed resources. Maximum of 40 tags.
    * @minLength `0`
    * @maxLength `40`
    */
   ExplicitTags?: Tag[];
   /**
-   * The mode for tag propagation.
+   * The mode for tag propagation. Use ``Explicit`` to propagate specific tags, or ``None`` to disable propagation.
    */
   Mode?: PropagateTagsMode;
 };

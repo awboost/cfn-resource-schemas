@@ -54,6 +54,29 @@ export type SecurityAgentAgentSpaceAttributes = {
    */
   CreatedAt: string;
   /**
+   * Integrated Resources configuration
+   */
+  IntegratedResources: {
+    /**
+     * List of selected Resources from the Integration
+     */
+    ProviderResources: {
+      /**
+       * Confluence document details
+       */
+      ConfluenceDocument: {
+        /**
+         * Read-only human-readable title of the containing space, populated from service-side metadata
+         */
+        SpaceTitle: string;
+        /**
+         * Read-only human-readable title of the page, populated from service-side metadata
+         */
+        Title: string;
+      };
+    }[];
+  }[];
+  /**
    * Timestamp when the agent space was last updated
    */
   UpdatedAt: string;
@@ -90,6 +113,36 @@ export type AWSResources = {
   Vpcs?: VpcConfig[];
 };
 /**
+ * Type definition for `AWS::SecurityAgent::AgentSpace.BitbucketCapabilitiesResource`.
+ * Bitbucket repository capabilities
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityagent-agentspace-bitbucketcapabilitiesresource.html}
+ */
+export type BitbucketCapabilitiesResource = {
+  /**
+   * Enables Code Review in the repository
+   */
+  LeaveComments?: boolean;
+  /**
+   * Enables creation of pull requests with automated fixes
+   */
+  RemediateCode?: boolean;
+};
+/**
+ * Type definition for `AWS::SecurityAgent::AgentSpace.BitbucketRepositoryResource`.
+ * Bitbucket repository details
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityagent-agentspace-bitbucketrepositoryresource.html}
+ */
+export type BitbucketRepositoryResource = {
+  /**
+   * Bitbucket repository name
+   */
+  Name: string;
+  /**
+   * Bitbucket workspace slug owning the repository
+   */
+  Workspace: string;
+};
+/**
  * Type definition for `AWS::SecurityAgent::AgentSpace.CodeReviewSettings`.
  * Details of code review settings
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityagent-agentspace-codereviewsettings.html}
@@ -103,6 +156,44 @@ export type CodeReviewSettings = {
    * Whether general purpose analysis is performed for code review
    */
   GeneralPurposeScanning: boolean;
+};
+/**
+ * Type definition for `AWS::SecurityAgent::AgentSpace.ConfluenceCapabilitiesResource`.
+ * Confluence document capabilities
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityagent-agentspace-confluencecapabilitiesresource.html}
+ */
+export type ConfluenceCapabilitiesResource = {
+  /**
+   * Enables creation of new Confluence documents in the same space
+   */
+  CreateDocument?: boolean;
+  /**
+   * Enables read access to the document content
+   */
+  FetchDocument?: boolean;
+  /**
+   * Enables updates to the document
+   */
+  UpdateDocument?: boolean;
+};
+/**
+ * Type definition for `AWS::SecurityAgent::AgentSpace.ConfluenceDocumentResource`.
+ * Confluence document details
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityagent-agentspace-confluencedocumentresource.html}
+ */
+export type ConfluenceDocumentResource = {
+  /**
+   * Customer-supplied logical name for the Confluence document
+   */
+  Name: string;
+  /**
+   * Confluence page identifier
+   */
+  PageId: string;
+  /**
+   * Confluence space key containing the document
+   */
+  SpaceKey: string;
 };
 /**
  * Type definition for `AWS::SecurityAgent::AgentSpace.GitHubCapabilitiesResource`.
@@ -135,6 +226,36 @@ export type GitHubRepositoryResource = {
   Owner: string;
 };
 /**
+ * Type definition for `AWS::SecurityAgent::AgentSpace.GitLabCapabilitiesResource`.
+ * GitLab repository capabilities
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityagent-agentspace-gitlabcapabilitiesresource.html}
+ */
+export type GitLabCapabilitiesResource = {
+  /**
+   * Enables Code Review in the repository
+   */
+  LeaveComments?: boolean;
+  /**
+   * Enables creation of merge requests with automated fixes
+   */
+  RemediateCode?: boolean;
+};
+/**
+ * Type definition for `AWS::SecurityAgent::AgentSpace.GitLabRepositoryResource`.
+ * GitLab repository details
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityagent-agentspace-gitlabrepositoryresource.html}
+ */
+export type GitLabRepositoryResource = {
+  /**
+   * GitLab project name
+   */
+  Name: string;
+  /**
+   * GitLab project namespace (user, group, or subgroup path)
+   */
+  Namespace: string;
+};
+/**
  * Type definition for `AWS::SecurityAgent::AgentSpace.IntegratedResource`.
  * Integrated Resource details
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityagent-agentspace-integratedresource.html}
@@ -151,10 +272,26 @@ export type IntegratedResource = {
 };
 /**
  * Type definition for `AWS::SecurityAgent::AgentSpace.ProviderResource`.
- * Selected Resource (eg: Code Repository) from an Integration
+ * Selected Resource (eg: Code Repository, Document) from an Integration
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityagent-agentspace-providerresource.html}
  */
 export type ProviderResource = {
+  /**
+   * Bitbucket repository capabilities
+   */
+  BitbucketCapabilities?: BitbucketCapabilitiesResource;
+  /**
+   * Bitbucket repository details
+   */
+  BitbucketRepository?: BitbucketRepositoryResource;
+  /**
+   * Confluence document capabilities
+   */
+  ConfluenceCapabilities?: ConfluenceCapabilitiesResource;
+  /**
+   * Confluence document details
+   */
+  ConfluenceDocument?: ConfluenceDocumentResource;
   /**
    * GitHub repository capabilities
    */
@@ -163,6 +300,14 @@ export type ProviderResource = {
    * GitHub repository details
    */
   GitHubRepository?: GitHubRepositoryResource;
+  /**
+   * GitLab repository capabilities
+   */
+  GitLabCapabilities?: GitLabCapabilitiesResource;
+  /**
+   * GitLab repository details
+   */
+  GitLabRepository?: GitLabRepositoryResource;
 };
 /**
  * Type definition for `AWS::SecurityAgent::AgentSpace.Tag`.

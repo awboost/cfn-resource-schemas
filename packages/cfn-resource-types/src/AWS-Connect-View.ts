@@ -14,7 +14,7 @@ export type ConnectViewProperties = {
    * The description of the view.
    * @minLength `0`
    * @maxLength `4096`
-   * @pattern `^([\p{L}\p{N}_.:\/=+\-@,]+[\p{L}\p{Z}\p{N}_.:\/=+\-@,]*)$`
+   * @pattern `^([\p{L}\p{N}_.:\/=+\-@,()']+[\p{L}\p{Z}\p{N}_.:\/=+\-@,()']*)$`
    */
   Description?: string;
   /**
@@ -28,7 +28,7 @@ export type ConnectViewProperties = {
    * The name of the view.
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `^([\p{L}\p{N}_.:\/=+\-@]+[\p{L}\p{Z}\p{N}_.:\/=+\-@]*)$`
+   * @pattern `^([\p{L}\p{N}_.:\/=+\-@()']+[\p{L}\p{Z}\p{N}_.:\/=+\-@()']*)$`
    */
   Name: string;
   /**

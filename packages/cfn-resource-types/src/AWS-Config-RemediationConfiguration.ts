@@ -17,13 +17,6 @@ export type ConfigRemediationConfigurationProperties = {
   TargetVersion?: string;
 };
 /**
- * Attribute type definition for `AWS::Config::RemediationConfiguration`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-remediationconfiguration.html#aws-resource-config-remediationconfiguration-return-values}
- */
-export type ConfigRemediationConfigurationAttributes = {
-  Id: string;
-};
-/**
  * Type definition for `AWS::Config::RemediationConfiguration.ExecutionControls`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-executioncontrols.html}
  */
@@ -45,7 +38,7 @@ export type SsmControls = {
 export class ConfigRemediationConfiguration extends $Resource<
   "AWS::Config::RemediationConfiguration",
   ConfigRemediationConfigurationProperties,
-  ConfigRemediationConfigurationAttributes
+  Record<string, never>
 > {
   public static readonly Type = "AWS::Config::RemediationConfiguration";
   constructor(
