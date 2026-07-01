@@ -54,6 +54,10 @@ export type Route53ResolverFirewallRuleGroupAttributes = {
      * @maxLength `64`
      */
     FirewallThreatProtectionId: string;
+    /**
+     * The status of the firewall rule.
+     */
+    Status: "COMPLETE" | "CREATING" | "CREATION_FAILED";
   }[];
   /**
    * ResourceId
@@ -199,6 +203,23 @@ export type FirewallRuleType = {
    * Configuration for an advanced threat category rule type.
    */
   FirewallAdvancedThreatCategory?: FirewallAdvancedThreatCategoryConfig;
+  /**
+   * Configuration for a partner threat protection rule type.
+   */
+  PartnerThreatProtection?: PartnerThreatProtectionConfig;
+};
+/**
+ * Type definition for `AWS::Route53Resolver::FirewallRuleGroup.PartnerThreatProtectionConfig`.
+ * Configuration for a partner threat protection rule type.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-partnerthreatprotectionconfig.html}
+ */
+export type PartnerThreatProtectionConfig = {
+  /**
+   * The partner identifier value.
+   * @minLength `1`
+   * @maxLength `128`
+   */
+  Partner: string;
 };
 /**
  * Type definition for `AWS::Route53Resolver::FirewallRuleGroup.Tag`.

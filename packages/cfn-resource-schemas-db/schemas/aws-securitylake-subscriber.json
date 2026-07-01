@@ -1,5 +1,5 @@
 {
-  "$hash": "d008ce7a3d71b3e49de75a90a5cb3c4e78e6a06b",
+  "$hash": "8613e551d23cbd7e68429cc71406d765c95eacd9",
   "$id": "aws-securitylake-subscriber.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DataLakeArn"],
@@ -112,6 +112,7 @@
         "securitylake:DeleteSubscriber",
         "iam:GetRole",
         "iam:ListRolePolicies",
+        "iam:ListAttachedRolePolicies",
         "iam:DeleteRole",
         "iam:DeleteRolePolicy",
         "glue:GetTable",
@@ -160,6 +161,7 @@
         "iam:PutRolePolicy",
         "iam:DeleteRolePolicy",
         "iam:ListRolePolicies",
+        "iam:ListAttachedRolePolicies",
         "events:CreateApiDestination",
         "events:CreateConnection",
         "events:ListApiDestinations",

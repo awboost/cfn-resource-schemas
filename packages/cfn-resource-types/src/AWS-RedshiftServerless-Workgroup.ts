@@ -42,7 +42,7 @@ export type RedshiftServerlessWorkgroupProperties = {
    */
   PubliclyAccessible?: boolean;
   /**
-   * The recovery point id to restore from.
+   * The identifier of the recovery point to restore the namespace from. When this resource is first created, the namespace is restored from this recovery point. On subsequent updates, a restore occurs only when RecoveryPointId changes from its previous value. If the value is unchanged or removed, no restore takes place and existing data is preserved.
    */
   RecoveryPointId?: string;
   /**
@@ -52,15 +52,15 @@ export type RedshiftServerlessWorkgroupProperties = {
    */
   SecurityGroupIds?: string[];
   /**
-   * The Amazon Resource Name (ARN) of the snapshot to restore from.
+   * The Amazon Resource Name (ARN) of the snapshot to restore the namespace from. Specify either SnapshotArn or SnapshotName, but not both. When this resource is first created, the namespace is restored from this snapshot. On subsequent updates, a restore occurs only when SnapshotArn changes from its previous value. If the value is unchanged or removed, no restore takes place and existing data is preserved.
    */
   SnapshotArn?: string;
   /**
-   * The snapshot name to restore from.
+   * The name of the snapshot to restore the namespace from. Because snapshot names are unique only within an account, also specify SnapshotOwnerAccount when restoring from a snapshot owned by a different account. Specify either SnapshotName or SnapshotArn, but not both. When this resource is first created, the namespace is restored from this snapshot. On subsequent updates, a restore occurs only when SnapshotName or SnapshotOwnerAccount changes from its previous value. If both values are unchanged or SnapshotName is removed, no restore takes place and existing data is preserved.
    */
   SnapshotName?: string;
   /**
-   * The Amazon Web Services account that owns the snapshot.
+   * The AWS account ID that owns the snapshot. Required when restoring from a snapshot shared by another account. Used in combination with SnapshotName. On updates, changing this value while SnapshotName is set triggers a restore from the newly referenced snapshot. If the value is unchanged, no restore takes place and existing data is preserved.
    */
   SnapshotOwnerAccount?: string;
   /**

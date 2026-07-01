@@ -1,56 +1,45 @@
-- added `AWS::QuickSight::OAuthClientApplication`
-- added `AWS::SecurityAgent::SecurityRequirementPack`
-- updated `AWS::AppStream::Stack`
-  - added definition `AgentAccessConfig`
-  - added definition `AgentAccessSetting`
-  - added property `AgentAccessConfig`
-  - updated definition `ApplicationSettings`
-- updated `AWS::CodePipeline::CustomActionType`
+- added `AWS::CertificateManager::AcmeDomainValidation`
+- added `AWS::CertificateManager::AcmeEndpoint`
+- added `AWS::CertificateManager::AcmeExternalAccountBinding`
+- updated `AWS::AutoScaling::AutoScalingGroup`
+  - updated definition `AvailabilityZoneDistribution`
+- updated `AWS::Config::AggregationAuthorization`
+  - updated `tagging`
+- updated `AWS::Config::ConfigurationAggregator`
+  - updated `tagging`
+- updated `AWS::ECS::DaemonTaskDefinition`
+  - updated property `IpcMode`
+  - updated property `PidMode`
+- updated `AWS::ECS::ExpressGatewayService`
+  - added property `TaskDefinitionArn`
+  - updated `propertyTransform`
+  - updated `required`
   - updated `writeOnlyProperties`
-- updated `AWS::Config::RemediationConfiguration`
-  - added `tagging`
-  - removed `readOnlyProperties`
-  - removed property `Id`
-  - updated `primaryIdentifier`
+  - updated definition `ExpressGatewayServiceConfiguration`
   - updated handler permissions
-- updated `AWS::Connect::EvaluationForm`
-  - added definition `EvaluationFormQuestionScoringConfiguration`
-  - added definition `EvaluationFormScoreThreshold`
-  - added definition `PointValue`
-  - added definition `QuestionOptionPointsConfiguration`
-  - added definition `QuestionPointsConfiguration`
-  - updated definition `EvaluationFormMultiSelectQuestionOption`
-  - updated definition `EvaluationFormNumericQuestionOption`
-  - updated definition `EvaluationFormQuestion`
-  - updated definition `EvaluationFormSection`
-  - updated definition `EvaluationFormSingleSelectQuestionOption`
-  - updated definition `ScoringStrategy`
-- updated `AWS::Connect::View`
-  - updated property `Description`
-  - updated property `Name`
-- updated `AWS::Connect::ViewVersion`
-  - updated property `VersionDescription`
-- updated `AWS::Lambda::CapacityProvider`
-  - updated definition `CapacityProviderLoggingConfig`
-  - updated definition `CapacityProviderTelemetryConfig`
-  - updated definition `PropagateTagsConfig`
-  - updated property `PropagateTags`
-- updated `AWS::Lambda::Function`
+- updated `AWS::ECS::Service`
+  - updated definition `MetricConfiguration`
+  - updated definition `MonitoringConfiguration`
+  - updated property `Monitoring`
+- updated `AWS::EKS::Cluster`
+  - added definition `RollbackConfig`
+  - added property `RollbackConfig`
   - updated `writeOnlyProperties`
-  - updated definition `Code`
+- updated `AWS::Lambda::Permission`
+  - updated property `InvokedViaFunctionUrl`
+- updated `AWS::Organizations::Policy`
   - updated handler permissions
-- updated `AWS::SecurityAgent::AgentSpace`
-  - added definition `BitbucketCapabilitiesResource`
-  - added definition `BitbucketRepositoryResource`
-  - added definition `ConfluenceCapabilitiesResource`
-  - added definition `ConfluenceDocumentResource`
-  - added definition `GitLabCapabilitiesResource`
-  - added definition `GitLabRepositoryResource`
+- updated `AWS::RedshiftServerless::Workgroup`
+  - updated property `RecoveryPointId`
+  - updated property `SnapshotArn`
+  - updated property `SnapshotName`
+  - updated property `SnapshotOwnerAccount`
+- updated `AWS::ResilienceHubV2::System`
+  - added property `SharingEnabled`
+- updated `AWS::Route53Resolver::FirewallRuleGroup`
+  - added definition `PartnerThreatProtectionConfig`
   - updated `readOnlyProperties`
-  - updated definition `ProviderResource`
-- updated `AWS::SecurityAgent::Pentest`
-  - added definition `CleanUpStrategy`
-  - added definition `SkillType`
-  - added property `CleanUpStrategy`
-  - added property `DisableManagedSkills`
-  - updated definition `DocumentInfo`
+  - updated definition `FirewallRuleType`
+  - updated definition `FirewallRule`
+- updated `AWS::SecurityLake::Subscriber`
+  - updated handler permissions

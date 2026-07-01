@@ -7,15 +7,16 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
 export type ECSExpressGatewayServiceProperties = {
   Cluster?: string;
   Cpu?: string;
-  ExecutionRoleArn: string;
+  ExecutionRoleArn?: string;
   HealthCheckPath?: string;
   InfrastructureRoleArn: string;
   Memory?: string;
   NetworkConfiguration?: ExpressGatewayServiceNetworkConfiguration;
-  PrimaryContainer: ExpressGatewayContainer;
+  PrimaryContainer?: ExpressGatewayContainer;
   ScalingTarget?: ExpressGatewayScalingTarget;
   ServiceName?: string;
   Tags?: Tag[];
+  TaskDefinitionArn?: string;
   TaskRoleArn?: string;
 };
 /**
@@ -64,6 +65,7 @@ export type ECSExpressGatewayServiceAttributes = {
       MinTaskCount: number;
     };
     ServiceRevisionArn: string;
+    TaskDefinitionArn: string;
     TaskRoleArn: string;
   }[];
   CreatedAt: string;
@@ -149,6 +151,7 @@ export type ExpressGatewayServiceConfiguration = {
   PrimaryContainer?: ExpressGatewayContainer;
   ScalingTarget?: ExpressGatewayScalingTarget;
   ServiceRevisionArn?: string;
+  TaskDefinitionArn?: string;
   TaskRoleArn?: string;
 };
 /**

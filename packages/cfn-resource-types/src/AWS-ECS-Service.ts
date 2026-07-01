@@ -91,6 +91,9 @@ export type ECSServiceProperties = {
       To remove this property from your service resource, specify an empty ``LoadBalancer`` array.
      */
   LoadBalancers?: LoadBalancer[];
+  /**
+   * The optional monitoring configuration for the service, which defines the resolution for the service-level ``CPUUtilization`` and ``MemoryUtilization`` Amazon CloudWatch metrics. When not specified, Amazon ECS uses the default resolution of ``60`` seconds.
+   */
   Monitoring?: MonitoringConfiguration;
   /**
    * The network configuration for the service. This parameter is required for task definitions that use the ``awsvpc`` network mode to receive their own elastic network interface, and it is not supported for other network modes. For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) in the *Amazon Elastic Container Service Developer Guide*.
@@ -682,22 +685,29 @@ export type LogConfiguration = {
 };
 /**
  * Type definition for `AWS::ECS::Service.MetricConfiguration`.
+ * The configuration for a specific set of metrics to collect for a service.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-metricconfiguration.html}
  */
 export type MetricConfiguration = {
   /**
+   * The list of metric names to configure. The supported metric names are ``CPUUtilization`` and ``MemoryUtilization``.
    * @minLength `1`
    * @maxLength `2`
    */
   MetricNames: ("CPUUtilization" | "MemoryUtilization")[];
+  /**
+   * The resolution, in seconds, at which to collect the metrics. The valid values are ``20`` and ``60``.
+   */
   ResolutionSeconds: 20 | 60;
 };
 /**
  * Type definition for `AWS::ECS::Service.MonitoringConfiguration`.
+ * The optional monitoring configuration for a service, which defines the resolution for the service-level ``CPUUtilization`` and ``MemoryUtilization`` Amazon CloudWatch metrics. When not specified, Amazon ECS uses the default resolution of ``60`` seconds.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-monitoringconfiguration.html}
  */
 export type MonitoringConfiguration = {
   /**
+   * The list of metric configurations for the service monitoring.
    * @minLength `1`
    * @maxLength `2`
    */

@@ -40,7 +40,7 @@ export type LambdaPermissionProperties = {
    */
   FunctionUrlAuthType?: "AWS_IAM" | "NONE";
   /**
-   * Restricts the ``lambda:InvokeFunction`` action to function URL calls. When specified, this option prevents the principal from invoking the function by any means other than the function URL. For more information, see [Control access to Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html).
+   * Indicates whether the permission applies when the function is invoked through a function URL.
    */
   InvokedViaFunctionUrl?: boolean;
   /**

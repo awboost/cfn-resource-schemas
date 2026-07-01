@@ -63,6 +63,10 @@ export type EKSClusterProperties = {
    */
   RoleArn: string;
   /**
+   * The rollback configuration to use for the cluster version rollback.
+   */
+  RollbackConfig?: RollbackConfig;
+  /**
    * Todo: add description
    */
   StorageConfig?: StorageConfig;
@@ -397,6 +401,19 @@ export type ResourcesVpcConfig = {
    * Specify subnets for your Amazon EKS nodes. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your nodes and the Kubernetes control plane.
    */
   SubnetIds: string[];
+};
+/**
+ * Type definition for `AWS::EKS::Cluster.RollbackConfig`.
+ * The rollback configuration to use for the cluster version rollback.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-rollbackconfig.html}
+ */
+export type RollbackConfig = {
+  /**
+   * The timeout in minutes for the version rollback operation. If not specified, defaults to 720 minutes (12 hours).
+   * @min `120`
+   * @max `10080`
+   */
+  TimeoutMinutes?: number;
 };
 /**
  * Type definition for `AWS::EKS::Cluster.StorageConfig`.

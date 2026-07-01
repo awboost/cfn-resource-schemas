@@ -23,8 +23,9 @@ export type ECSDaemonTaskDefinitionProperties = {
    */
   Family?: string;
   /**
-     * The IPC namespace mode for the daemon. The valid values are ``none`` and ``shared``. The default is ``none``.
-     If ``none`` is specified or no value is provided, the daemon runs with its own IPC namespace, isolated from other tasks. If ``shared`` is specified, the daemon joins the host IPC namespace, making it accessible to non-daemon tasks that use ``ipcMode: "host"`` or other daemons that use ``ipcMode: "shared"``.
+     * The IPC resource namespace mode for the containers in the daemon task. The valid values are ``none`` and ``shared``.
+     If ``shared`` is specified, all containers within the daemon task share the same IPC resources.
+     If ``none`` is specified, each container in the daemon task has a private IPC namespace.
      */
   IpcMode?: string;
   /**
@@ -32,8 +33,9 @@ export type ECSDaemonTaskDefinitionProperties = {
    */
   Memory?: string;
   /**
-     * The PID namespace mode for the daemon. The valid values are ``none`` and ``shared``. The default is ``none``.
-     If ``none`` is specified or no value is provided, the daemon runs with its own PID namespace, isolated from other tasks. If ``shared`` is specified, the daemon joins the host PID namespace, making it accessible to non-daemon tasks that use ``pidMode: "host"`` or other daemons that use ``pidMode: "shared"``.
+     * The process namespace mode for the containers in the daemon task. The valid values are ``none`` and ``shared``.
+     If ``shared`` is specified, all containers within the daemon task share the same process namespace.
+     If ``none`` is specified, each container in the daemon task has a private process namespace.
      */
   PidMode?: string;
   Tags?: Tag[];

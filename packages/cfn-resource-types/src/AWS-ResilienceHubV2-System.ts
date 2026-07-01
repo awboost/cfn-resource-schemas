@@ -24,6 +24,10 @@ export type ResilienceHubV2SystemProperties = {
    */
   Name: string;
   /**
+   * Whether the system is enabled to be shared with other members of the Organization. Only applicable if the system owner is a management account or delegated admin.
+   */
+  SharingEnabled?: boolean;
+  /**
    * Tags assigned to the system.
    * @maxLength `50`
    */

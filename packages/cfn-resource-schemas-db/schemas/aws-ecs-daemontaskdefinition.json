@@ -1,5 +1,5 @@
 {
-  "$hash": "1bf8659c47be3deeb40bcc42101a182ab4333b54",
+  "$hash": "2b3934eba0c10f2dc2a552bc5f999f7d6364b7ba",
   "$id": "aws-ecs-daemontaskdefinition.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -557,7 +557,7 @@
       "type": "string"
     },
     "IpcMode": {
-      "description": "The IPC namespace mode for the daemon. The valid values are ``none`` and ``shared``. The default is ``none``.\n If ``none`` is specified or no value is provided, the daemon runs with its own IPC namespace, isolated from other tasks. If ``shared`` is specified, the daemon joins the host IPC namespace, making it accessible to non-daemon tasks that use ``ipcMode: \"host\"`` or other daemons that use ``ipcMode: \"shared\"``.",
+      "description": "The IPC resource namespace mode for the containers in the daemon task. The valid values are ``none`` and ``shared``.\n If ``shared`` is specified, all containers within the daemon task share the same IPC resources.\n If ``none`` is specified, each container in the daemon task has a private IPC namespace.",
       "type": "string"
     },
     "Memory": {
@@ -565,7 +565,7 @@
       "type": "string"
     },
     "PidMode": {
-      "description": "The PID namespace mode for the daemon. The valid values are ``none`` and ``shared``. The default is ``none``.\n If ``none`` is specified or no value is provided, the daemon runs with its own PID namespace, isolated from other tasks. If ``shared`` is specified, the daemon joins the host PID namespace, making it accessible to non-daemon tasks that use ``pidMode: \"host\"`` or other daemons that use ``pidMode: \"shared\"``.",
+      "description": "The process namespace mode for the containers in the daemon task. The valid values are ``none`` and ``shared``.\n If ``shared`` is specified, all containers within the daemon task share the same process namespace.\n If ``none`` is specified, each container in the daemon task has a private process namespace.",
       "type": "string"
     },
     "Tags": {

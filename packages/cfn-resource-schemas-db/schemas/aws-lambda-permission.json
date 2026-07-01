@@ -1,5 +1,5 @@
 {
-  "$hash": "1f47d0a898a8f2e21c2f7b77e714bd56f58853d5",
+  "$hash": "17551bc20f25d70a5cad0b43845e534825b26dd4",
   "$id": "aws-lambda-permission.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -70,7 +70,7 @@
       "type": "string"
     },
     "InvokedViaFunctionUrl": {
-      "description": "Restricts the ``lambda:InvokeFunction`` action to function URL calls. When specified, this option prevents the principal from invoking the function by any means other than the function URL. For more information, see [Control access to Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html).",
+      "description": "Indicates whether the permission applies when the function is invoked through a function URL.",
       "type": "boolean"
     },
     "Principal": {

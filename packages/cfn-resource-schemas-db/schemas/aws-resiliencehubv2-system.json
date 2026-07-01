@@ -1,5 +1,5 @@
 {
-  "$hash": "2e2141c755e5c1edb0d2bea80848f1c01bbbf777",
+  "$hash": "8dd5cc4a8650536f4c8edd022db8715b8cc666bb",
   "$id": "aws-resiliencehubv2-system.json",
   "additionalIdentifiers": [["/properties/SystemId"]],
   "additionalProperties": false,
@@ -101,6 +101,11 @@
       "description": "The name of the system.",
       "pattern": "^[A-Za-z0-9][A-Za-z0-9_\\-]{1,59}$",
       "type": "string"
+    },
+    "SharingEnabled": {
+      "default": false,
+      "description": "Whether the system is enabled to be shared with other members of the Organization. Only applicable if the system owner is a management account or delegated admin.",
+      "type": "boolean"
     },
     "SystemArn": {
       "description": "The ARN of the system.",

@@ -1,5 +1,5 @@
 {
-  "$hash": "45d5477f758ef9ab1f24950c19c4794af1205fe3",
+  "$hash": "8396eb1430f036dbc494698c9607229f2ed70c0b",
   "$id": "aws-organizations-policy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Type"],
@@ -42,6 +42,7 @@
     },
     "delete": {
       "permissions": [
+        "organizations:ListTargetsForPolicy",
         "organizations:DetachPolicy",
         "organizations:DeletePolicy"
       ]

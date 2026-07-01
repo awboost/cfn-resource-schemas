@@ -1,5 +1,5 @@
 {
-  "$hash": "24bc45596e0ebdd10931e62bde3542cd41fb13ac",
+  "$hash": "35133de95841d09d7856a794a45a8142523e6233",
   "$id": "aws-autoscaling-autoscalinggroup.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -43,7 +43,11 @@
       "properties": {
         "CapacityDistributionStrategy": {
           "description": "If launches fail in an Availability Zone, the following strategies are available. The default is ``balanced-best-effort``. \n  +  ``balanced-only`` - If launches fail in an Availability Zone, Auto Scaling will continue to attempt to launch in the unhealthy zone to preserve a balanced distribution.\n  +  ``balanced-best-effort`` - If launches fail in an Availability Zone, Auto Scaling will attempt to launch in another healthy Availability Zone instead.",
-          "enum": ["balanced-best-effort", "balanced-only"],
+          "enum": [
+            "balanced-best-effort",
+            "balanced-only",
+            "reservations-then-balanced"
+          ],
           "type": "string"
         }
       },

@@ -1,5 +1,5 @@
 {
-  "$hash": "b1d16ef99e8f314682ffdde4c30b4a92384faac0",
+  "$hash": "b6c520496d8d3b7a9bace580894b18743ec6f6d3",
   "$id": "aws-ecs-service.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": ["/properties/LaunchType"],
@@ -371,9 +371,10 @@
     },
     "MetricConfiguration": {
       "additionalProperties": false,
-      "description": "",
+      "description": "The configuration for a specific set of metrics to collect for a service.",
       "properties": {
         "MetricNames": {
+          "description": "The list of metric names to configure. The supported metric names are ``CPUUtilization`` and ``MemoryUtilization``.",
           "items": {
             "enum": ["CPUUtilization", "MemoryUtilization"],
             "type": "string"
@@ -383,16 +384,21 @@
           "type": "array",
           "uniqueItems": true
         },
-        "ResolutionSeconds": { "enum": [20, 60], "type": "integer" }
+        "ResolutionSeconds": {
+          "description": "The resolution, in seconds, at which to collect the metrics. The valid values are ``20`` and ``60``.",
+          "enum": [20, 60],
+          "type": "integer"
+        }
       },
       "required": ["MetricNames", "ResolutionSeconds"],
       "type": "object"
     },
     "MonitoringConfiguration": {
       "additionalProperties": false,
-      "description": "",
+      "description": "The optional monitoring configuration for a service, which defines the resolution for the service-level ``CPUUtilization`` and ``MemoryUtilization`` Amazon CloudWatch metrics. When not specified, Amazon ECS uses the default resolution of ``60`` seconds.",
       "properties": {
         "MetricConfigurations": {
+          "description": "The list of metric configurations for the service monitoring.",
           "items": { "$ref": "#/definitions/MetricConfiguration" },
           "maxItems": 2,
           "minItems": 1,
@@ -862,7 +868,7 @@
     },
     "Monitoring": {
       "$ref": "#/definitions/MonitoringConfiguration",
-      "description": ""
+      "description": "The optional monitoring configuration for the service, which defines the resolution for the service-level ``CPUUtilization`` and ``MemoryUtilization`` Amazon CloudWatch metrics. When not specified, Amazon ECS uses the default resolution of ``60`` seconds."
     },
     "Name": { "description": "", "type": "string" },
     "NetworkConfiguration": {

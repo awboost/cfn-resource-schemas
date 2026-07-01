@@ -1,5 +1,5 @@
 {
-  "$hash": "ce302017028c9ce3934d9be1eb37345cc10b542f",
+  "$hash": "a0f6b4a2a1dedff9f7666ebe022e9017fa3670c2",
   "$id": "aws-ecs-expressgatewayservice.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -106,6 +106,7 @@
           "$ref": "#/definitions/ExpressGatewayScalingTarget"
         },
         "ServiceRevisionArn": { "type": "string" },
+        "TaskDefinitionArn": { "type": "string" },
         "TaskRoleArn": { "type": "string" }
       },
       "type": "object"
@@ -221,6 +222,8 @@
         "ecs:UpdateExpressGatewayService",
         "ecs:DescribeExpressGatewayService",
         "ecs:DescribeServiceDeployments",
+        "ecs:DescribeServiceRevisions",
+        "ecs:DescribeServices",
         "ecs:ListServiceDeployments",
         "ecs:RegisterTaskDefinition",
         "iam:PassRole"
@@ -254,11 +257,12 @@
     "ServiceName": { "type": "string" },
     "Status": { "$ref": "#/definitions/ExpressGatewayServiceStatus" },
     "Tags": { "items": { "$ref": "#/definitions/Tag" }, "type": "array" },
+    "TaskDefinitionArn": { "type": "string" },
     "TaskRoleArn": { "type": "string" },
     "UpdatedAt": { "format": "date-time", "type": "string" }
   },
   "propertyTransform": {
-    "/properties/Cluster": "Cluster $OR $join([\"arn:(aws)[-]{0,1}[a-z]{0,3}[-]{0,1}[a-z]{0,3}:ecs:[a-z0-9-]+:[0-9]{12}:cluster/{1}\", Cluster])"
+    "/properties/Cluster": "Cluster $OR $join([\"arn:(aws)[-]{0,1}[a-z]{0,3}[-]{0,1}[a-z]{0,3}:ecs:[a-z0-9-]+:[0-9]{12}:cluster/\", Cluster])"
   },
   "readOnlyProperties": [
     "/properties/ServiceArn",
@@ -282,7 +286,7 @@
     "/properties/ECSManagedResourceArns/IngressPath/LoadBalancerArn",
     "/properties/ECSManagedResourceArns/IngressPath/TargetGroupArns"
   ],
-  "required": ["ExecutionRoleArn", "InfrastructureRoleArn", "PrimaryContainer"],
+  "required": ["InfrastructureRoleArn"],
   "tagging": {
     "cloudFormationSystemTags": false,
     "permissions": [
@@ -299,6 +303,7 @@
   "writeOnlyProperties": [
     "/properties/ExecutionRoleArn",
     "/properties/TaskRoleArn",
+    "/properties/TaskDefinitionArn",
     "/properties/HealthCheckPath",
     "/properties/PrimaryContainer",
     "/properties/NetworkConfiguration",
