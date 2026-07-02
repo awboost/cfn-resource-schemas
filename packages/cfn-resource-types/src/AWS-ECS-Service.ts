@@ -330,10 +330,12 @@ export type DeploymentCircuitBreaker = {
    * Determines whether to use the deployment circuit breaker logic for the service.
    */
   Enable: boolean;
+  ResetOnHealthyTask?: boolean;
   /**
    * Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is on, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
    */
   Rollback: boolean;
+  ThresholdConfiguration?: ThresholdConfiguration;
 };
 /**
  * Type definition for `AWS::ECS::Service.DeploymentConfiguration`.
@@ -1095,6 +1097,14 @@ export type Tag = {
    * The optional part of a key-value pair that make up a tag. A ``value`` acts as a descriptor within a tag category (key).
    */
   Value?: string;
+};
+/**
+ * Type definition for `AWS::ECS::Service.ThresholdConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-thresholdconfiguration.html}
+ */
+export type ThresholdConfiguration = {
+  Type: "COUNT" | "BOUNDED_PERCENT" | "UNBOUNDED_PERCENT";
+  Value: number;
 };
 /**
  * Type definition for `AWS::ECS::Service.TimeoutConfiguration`.

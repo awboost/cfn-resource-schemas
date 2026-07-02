@@ -1,5 +1,5 @@
 {
-  "$hash": "1fd3531ec5f64e0db65235c798d01c5662423523",
+  "$hash": "3be29db46ceaabc1f0fb23b6fc99e873c71a72d8",
   "$id": "aws-ecs-capacityprovider.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -140,7 +140,13 @@
               "t4g",
               "vu9p",
               "v100",
-              "l40s"
+              "l40s",
+              "l4",
+              "gaudi-hl-205",
+              "inferentia2",
+              "trainium",
+              "trainium2",
+              "u30"
             ],
             "type": "string"
           },

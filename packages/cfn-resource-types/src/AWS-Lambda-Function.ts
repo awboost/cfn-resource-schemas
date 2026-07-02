@@ -263,6 +263,10 @@ export type DurableConfig = {
    */
   ExecutionTimeout: number;
   /**
+   * @pattern `^(arn:(aws[a-zA-Z-]*)?:[a-z0-9-.]+:.*)|()$`
+   */
+  KMSKeyArn?: string;
+  /**
    * The number of days to retain execution history after a durable execution completes. After this period, execution history is no longer available through the GetDurableExecutionHistory API.
    * @min `1`
    * @max `90`

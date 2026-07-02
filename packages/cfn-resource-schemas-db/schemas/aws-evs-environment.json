@@ -1,5 +1,5 @@
 {
-  "$hash": "f757286a460f3a35eeb15fd4a059ebafa4d0aee4",
+  "$hash": "9db30e67d5aec2c31006c0e510b5d3a198476aa7",
   "$id": "aws-evs-environment.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -342,7 +342,10 @@
       ],
       "type": "object"
     },
-    "VcfVersion": { "enum": ["VCF-5.2.1", "VCF-5.2.2"], "type": "string" },
+    "VcfVersion": {
+      "enum": ["VCF-5.2.1", "VCF-5.2.2", "SELF_DEPLOYED"],
+      "type": "string"
+    },
     "VpcId": {
       "maxLength": 21,
       "minLength": 12,
@@ -360,16 +363,7 @@
     "/properties/CreatedAt",
     "/properties/ModifiedAt"
   ],
-  "required": [
-    "VpcId",
-    "ServiceAccessSubnetId",
-    "VcfVersion",
-    "TermsAccepted",
-    "LicenseInfo",
-    "ConnectivityInfo",
-    "VcfHostnames",
-    "SiteId"
-  ],
+  "required": ["VpcId", "ServiceAccessSubnetId", "VcfVersion", "TermsAccepted"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
     "cloudFormationSystemTags": true,

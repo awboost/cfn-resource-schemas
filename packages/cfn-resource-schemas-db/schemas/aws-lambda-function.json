@@ -1,5 +1,5 @@
 {
-  "$hash": "31acbd1c5b30d496be2402951971e2146a921c2a",
+  "$hash": "3646542025377530cb205ce8649e636cddc606e1",
   "$id": "aws-lambda-function.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": ["/properties/DurableConfig"],
@@ -86,6 +86,11 @@
           "maximum": 31622400,
           "minimum": 1,
           "type": "integer"
+        },
+        "KMSKeyArn": {
+          "description": "",
+          "pattern": "^(arn:(aws[a-zA-Z-]*)?:[a-z0-9-.]+:.*)|()$",
+          "type": "string"
         },
         "RetentionPeriodInDays": {
           "default": 14,
@@ -387,6 +392,7 @@
         "s3files:ListMountTargets",
         "kms:CreateGrant",
         "kms:Decrypt",
+        "kms:DescribeKey",
         "kms:Encrypt",
         "kms:GenerateDataKey",
         "lambda:GetCodeSigningConfig",
@@ -438,6 +444,7 @@
         "s3files:ListMountTargets",
         "kms:CreateGrant",
         "kms:Decrypt",
+        "kms:DescribeKey",
         "kms:GenerateDataKey",
         "lambda:GetRuntimeManagementConfig",
         "lambda:PutRuntimeManagementConfig",

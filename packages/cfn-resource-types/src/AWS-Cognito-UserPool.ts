@@ -33,6 +33,8 @@ export type CognitoUserPoolProperties = {
    */
   EmailVerificationSubject?: string;
   EnabledMfas?: string[];
+  IssuerConfiguration?: IssuerConfiguration;
+  KeyConfiguration?: KeyConfiguration;
   LambdaConfig?: LambdaConfig;
   MfaConfiguration?: string;
   Policies?: Policies;
@@ -143,6 +145,11 @@ export type EmailConfiguration = {
   SourceArn?: string;
 };
 /**
+ * Type definition for `AWS::Cognito::UserPool.EncryptionKeyType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-encryptionkeytype.html}
+ */
+export type EncryptionKeyType = "AWS_OWNED_KEY" | "CUSTOMER_MANAGED_KEY";
+/**
  * Type definition for `AWS::Cognito::UserPool.InboundFederation`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-inboundfederation.html}
  */
@@ -158,6 +165,24 @@ export type InviteMessageTemplate = {
   EmailMessage?: string;
   EmailSubject?: string;
   SMSMessage?: string;
+};
+/**
+ * Type definition for `AWS::Cognito::UserPool.IssuerConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-issuerconfiguration.html}
+ */
+export type IssuerConfiguration = {
+  Type?: "ORIGINAL" | "UPDATED";
+};
+/**
+ * Type definition for `AWS::Cognito::UserPool.KeyConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-keyconfiguration.html}
+ */
+export type KeyConfiguration = {
+  KeyType?: EncryptionKeyType;
+  /**
+   * @pattern `arn:[\w+=/,.@-]+:[\w+=/,.@-]+:([\w+=/,.@-]*)?:[0-9]+:[\w+=/,.@-]+(:[\w+=/,.@-]+)?(:[\w+=/,.@-]+)?`
+   */
+  KmsKeyArn?: string;
 };
 /**
  * Type definition for `AWS::Cognito::UserPool.LambdaConfig`.

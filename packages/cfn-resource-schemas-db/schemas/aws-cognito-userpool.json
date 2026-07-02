@@ -1,5 +1,5 @@
 {
-  "$hash": "364bcba9f8288ecc7a47cdd0d245a41e7df7f5e8",
+  "$hash": "00bd52a06f33c73832ae4edb7064fcca5b396ced",
   "$id": "aws-cognito-userpool.json",
   "additionalProperties": false,
   "definitions": {
@@ -64,6 +64,14 @@
       },
       "type": "object"
     },
+    "EncryptionKeyArnType": {
+      "pattern": "arn:[\\w+=/,.@-]+:[\\w+=/,.@-]+:([\\w+=/,.@-]*)?:[0-9]+:[\\w+=/,.@-]+(:[\\w+=/,.@-]+)?(:[\\w+=/,.@-]+)?",
+      "type": "string"
+    },
+    "EncryptionKeyType": {
+      "enum": ["AWS_OWNED_KEY", "CUSTOMER_MANAGED_KEY"],
+      "type": "string"
+    },
     "InboundFederation": {
       "additionalProperties": false,
       "properties": {
@@ -78,6 +86,21 @@
         "EmailMessage": { "type": "string" },
         "EmailSubject": { "type": "string" },
         "SMSMessage": { "type": "string" }
+      },
+      "type": "object"
+    },
+    "IssuerConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "Type": { "enum": ["ORIGINAL", "UPDATED"], "type": "string" }
+      },
+      "type": "object"
+    },
+    "KeyConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "KeyType": { "$ref": "#/definitions/EncryptionKeyType" },
+        "KmsKeyArn": { "$ref": "#/definitions/EncryptionKeyArnType" }
       },
       "type": "object"
     },
@@ -241,6 +264,13 @@
         "cognito-idp:SetUserPoolMfaConfig",
         "cognito-idp:DescribeUserPool",
         "kms:CreateGrant",
+        "kms:DescribeKey",
+        "kms:Encrypt",
+        "kms:Decrypt",
+        "kms:GenerateDataKey",
+        "kms:GenerateDataKeyWithoutPlaintext",
+        "kms:ReEncryptFrom",
+        "kms:ReEncryptTo",
         "iam:CreateServiceLinkedRole",
         "cognito-idp:TagResource"
       ],
@@ -254,7 +284,9 @@
     "read": {
       "permissions": [
         "cognito-idp:DescribeUserPool",
-        "cognito-idp:GetUserPoolMfaConfig"
+        "cognito-idp:GetUserPoolMfaConfig",
+        "kms:Decrypt",
+        "kms:DescribeKey"
       ]
     },
     "update": {
@@ -267,7 +299,15 @@
         "cognito-idp:AddCustomAttributes",
         "cognito-idp:DescribeUserPool",
         "cognito-idp:GetUserPoolMfaConfig",
-        "iam:PassRole"
+        "iam:PassRole",
+        "kms:CreateGrant",
+        "kms:DescribeKey",
+        "kms:Encrypt",
+        "kms:Decrypt",
+        "kms:GenerateDataKey",
+        "kms:GenerateDataKeyWithoutPlaintext",
+        "kms:ReEncryptFrom",
+        "kms:ReEncryptTo"
       ],
       "timeoutInMinutes": 2
     }
@@ -308,6 +348,8 @@
       "type": "string"
     },
     "EnabledMfas": { "items": { "type": "string" }, "type": "array" },
+    "IssuerConfiguration": { "$ref": "#/definitions/IssuerConfiguration" },
+    "KeyConfiguration": { "$ref": "#/definitions/KeyConfiguration" },
     "LambdaConfig": { "$ref": "#/definitions/LambdaConfig" },
     "MfaConfiguration": { "type": "string" },
     "Policies": { "$ref": "#/definitions/Policies" },

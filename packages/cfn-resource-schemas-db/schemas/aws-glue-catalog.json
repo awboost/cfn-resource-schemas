@@ -1,5 +1,5 @@
 {
-  "$hash": "270a5d4ffd46878df715973a565c6d9a853a151a",
+  "$hash": "a7cc73e6c0dad6a0daca2c4c473cedaf5cd45a52",
   "$id": "aws-glue-catalog.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -156,6 +156,7 @@
         "glue:TagResource",
         "glue:GetTags",
         "iam:PassRole",
+        "iam:CreateServiceLinkedRole",
         "kms:Decrypt",
         "kms:Encrypt",
         "kms:GenerateDataKey",

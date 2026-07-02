@@ -1,5 +1,5 @@
 {
-  "$hash": "6d671875dddfcf4efddd0bf8c7dd0ebe28ed593e",
+  "$hash": "c71c2dd69cbca9686c7823fd72d08e92d2a76782",
   "$id": "aws-cognito-identitypool.json",
   "additionalProperties": false,
   "definitions": {
@@ -69,7 +69,12 @@
     },
     "delete": { "permissions": ["cognito-identity:DeleteIdentityPool"] },
     "list": { "permissions": ["cognito-identity:ListIdentityPools"] },
-    "read": { "permissions": ["cognito-identity:DescribeIdentityPool"] },
+    "read": {
+      "permissions": [
+        "cognito-identity:DescribeIdentityPool",
+        "cognito-identity:ListTagsForResource"
+      ]
+    },
     "update": {
       "permissions": [
         "cognito-identity:UpdateIdentityPool",
@@ -124,10 +129,11 @@
   "required": ["AllowUnauthenticatedIdentities"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "cognito-identity:TagResource",
-      "cognito-identity:UntagResource"
+      "cognito-identity:UntagResource",
+      "cognito-identity:ListTagsForResource"
     ],
     "tagOnCreate": true,
     "tagProperty": "/properties/IdentityPoolTags",

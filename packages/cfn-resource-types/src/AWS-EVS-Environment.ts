@@ -6,7 +6,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evs-environment.html}
  */
 export type EVSEnvironmentProperties = {
-  ConnectivityInfo: {
+  ConnectivityInfo?: {
     /**
      * @minLength `2`
      * @maxLength `2`
@@ -48,7 +48,7 @@ export type EVSEnvironmentProperties = {
   /**
    * The license information for an EVS environment
    */
-  LicenseInfo: {
+  LicenseInfo?: {
     /**
      * @pattern `^[a-zA-Z0-9]{5}-[a-zA-Z0-9]{5}-[a-zA-Z0-9]{5}-[a-zA-Z0-9]{5}-[a-zA-Z0-9]{5}$`
      */
@@ -67,13 +67,13 @@ export type EVSEnvironmentProperties = {
    * @pattern `^subnet-[a-f0-9]{8}([a-f0-9]{9})?$`
    */
   ServiceAccessSubnetId: string;
-  SiteId: string;
+  SiteId?: string;
   /**
    * An array of key-value pairs to apply to this resource.
    */
   Tags?: Tag[];
   TermsAccepted: boolean;
-  VcfHostnames: {
+  VcfHostnames?: {
     /**
      * @pattern `^([a-zA-Z0-9\-]*)$`
      */
@@ -111,7 +111,7 @@ export type EVSEnvironmentProperties = {
      */
     VCenter: string;
   };
-  VcfVersion: "VCF-5.2.1" | "VCF-5.2.2";
+  VcfVersion: "VCF-5.2.1" | "VCF-5.2.2" | "SELF_DEPLOYED";
   /**
    * @minLength `12`
    * @maxLength `21`

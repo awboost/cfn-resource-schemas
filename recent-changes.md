@@ -1,45 +1,50 @@
-- added `AWS::CertificateManager::AcmeDomainValidation`
-- added `AWS::CertificateManager::AcmeEndpoint`
-- added `AWS::CertificateManager::AcmeExternalAccountBinding`
-- updated `AWS::AutoScaling::AutoScalingGroup`
-  - updated definition `AvailabilityZoneDistribution`
-- updated `AWS::Config::AggregationAuthorization`
+- added `AWS::Cognito::UserPoolRegionalConfigurationAttachment`
+- added `AWS::Cognito::UserPoolReplica`
+- added `AWS::Connect::TestCase`
+- updated `AWS::Athena::DataCatalog`
   - updated `tagging`
-- updated `AWS::Config::ConfigurationAggregator`
+- updated `AWS::Athena::WorkGroup`
   - updated `tagging`
+  - updated `writeOnlyProperties`
+  - updated handler permissions
+- updated `AWS::CloudWatch::InsightRule`
+  - added `additionalIdentifiers`
+  - added `tagging`
+  - removed property `Id`
+  - updated `primaryIdentifier`
+  - updated `readOnlyProperties`
+  - updated `required`
+  - updated definition `Tag`
+  - updated handler permissions
+  - updated property `ApplyOnTransformedLogs`
+  - updated property `RuleState`
+  - updated property `Tags`
+- updated `AWS::Cognito::IdentityPool`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::Cognito::UserPool`
+  - added definition `EncryptionKeyArnType`
+  - added definition `EncryptionKeyType`
+  - added definition `IssuerConfiguration`
+  - added definition `KeyConfiguration`
+  - added property `IssuerConfiguration`
+  - added property `KeyConfiguration`
+  - updated handler permissions
+- updated `AWS::Connect::PhoneNumber`
+  - updated `tagging`
+- updated `AWS::ECS::CapacityProvider`
+  - updated definition `InstanceRequirementsRequest`
 - updated `AWS::ECS::DaemonTaskDefinition`
   - updated property `IpcMode`
   - updated property `PidMode`
-- updated `AWS::ECS::ExpressGatewayService`
-  - added property `TaskDefinitionArn`
-  - updated `propertyTransform`
-  - updated `required`
-  - updated `writeOnlyProperties`
-  - updated definition `ExpressGatewayServiceConfiguration`
-  - updated handler permissions
 - updated `AWS::ECS::Service`
-  - updated definition `MetricConfiguration`
-  - updated definition `MonitoringConfiguration`
-  - updated property `Monitoring`
-- updated `AWS::EKS::Cluster`
-  - added definition `RollbackConfig`
-  - added property `RollbackConfig`
-  - updated `writeOnlyProperties`
-- updated `AWS::Lambda::Permission`
-  - updated property `InvokedViaFunctionUrl`
-- updated `AWS::Organizations::Policy`
+  - added definition `ThresholdConfiguration`
+  - updated definition `DeploymentCircuitBreaker`
+- updated `AWS::EVS::Environment`
+  - updated `required`
+  - updated property `VcfVersion`
+- updated `AWS::Glue::Catalog`
   - updated handler permissions
-- updated `AWS::RedshiftServerless::Workgroup`
-  - updated property `RecoveryPointId`
-  - updated property `SnapshotArn`
-  - updated property `SnapshotName`
-  - updated property `SnapshotOwnerAccount`
-- updated `AWS::ResilienceHubV2::System`
-  - added property `SharingEnabled`
-- updated `AWS::Route53Resolver::FirewallRuleGroup`
-  - added definition `PartnerThreatProtectionConfig`
-  - updated `readOnlyProperties`
-  - updated definition `FirewallRuleType`
-  - updated definition `FirewallRule`
-- updated `AWS::SecurityLake::Subscriber`
+- updated `AWS::Lambda::Function`
+  - updated definition `DurableConfig`
   - updated handler permissions

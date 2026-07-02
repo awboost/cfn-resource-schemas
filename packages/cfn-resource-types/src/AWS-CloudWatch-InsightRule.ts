@@ -1,14 +1,14 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * Resource Type definition for AWS::CloudWatch::InsightRule
+ * Resource Type definition for AWS::CloudWatch::InsightRule. Creates a Contributor Insights rule that analyzes log data to identify top contributors and usage patterns.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-insightrule.html}
  */
 export type CloudWatchInsightRuleProperties = {
   ApplyOnTransformedLogs?: boolean;
   RuleBody: string;
   RuleName: string;
-  RuleState: string;
+  RuleState: "ENABLED" | "DISABLED";
   Tags?: Tag[];
 };
 /**
@@ -17,7 +17,6 @@ export type CloudWatchInsightRuleProperties = {
  */
 export type CloudWatchInsightRuleAttributes = {
   Arn: string;
-  Id: string;
 };
 /**
  * Type definition for `AWS::CloudWatch::InsightRule.Tag`.
@@ -28,7 +27,7 @@ export type Tag = {
   Value: string;
 };
 /**
- * Resource Type definition for AWS::CloudWatch::InsightRule
+ * Resource Type definition for AWS::CloudWatch::InsightRule. Creates a Contributor Insights rule that analyzes log data to identify top contributors and usage patterns.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-insightrule.html}
  */
 export class CloudWatchInsightRule extends $Resource<
