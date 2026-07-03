@@ -1,5 +1,5 @@
 {
-  "$hash": "87e6579f946e62b754d8016ecd1fee23a1433671",
+  "$hash": "797fa1812873c229ba1ffe6afc57c76dbdfb06a1",
   "$id": "aws-imagebuilder-containerrecipe.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -302,6 +302,9 @@
       "description": "The working directory to be used during build and test workflows.",
       "type": "string"
     }
+  },
+  "propertyTransform": {
+    "/properties/Version": "$join([\"^\", $replace($replace(Version, \".\", \"\\\\.\"), \"x\", \"[0-9]+\"), \"$\"])"
   },
   "readOnlyProperties": [
     "/properties/Arn",

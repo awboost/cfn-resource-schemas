@@ -1,8 +1,7 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * Resource type definition for `AWS::OpenSearchServerless::Index`.
- * An OpenSearch Serverless index resource
+ * Resource Type definition for AWS::OpenSearchServerless::Index
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-index.html}
  */
 export type OpenSearchServerlessIndexProperties = {
@@ -44,6 +43,35 @@ export type OpenSearchServerlessIndexAttributes = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-index-indexsettings.html}
  */
 export type IndexSettings = {
+  /**
+   * Custom analysis configuration including analyzers, tokenizers, and filters
+   */
+  Analysis?: {
+    /**
+     * Custom analyzer definitions
+     */
+    Analyzer?: Record<
+      string,
+      {
+        /**
+         * Character filters to apply
+         */
+        CharFilter?: string[];
+        /**
+         * Token filters to apply
+         */
+        Filter?: string[];
+        /**
+         * The tokenizer to use
+         */
+        Tokenizer?: string;
+        /**
+         * The analyzer type (e.g. custom, standard, simple)
+         */
+        Type?: string;
+      }
+    >;
+  };
   Index?: {
     /**
      * Enable/disable k-nearest neighbor search capability
@@ -64,6 +92,14 @@ export type IndexSettings = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-index-propertymapping.html}
  */
 export type PropertyMapping = {
+  /**
+   * The analyzer to use for this field (for text and keyword fields)
+   */
+  Analyzer?: string;
+  /**
+   * The compression level for knn_vector fields
+   */
+  CompressionLevel?: "16x" | "32x" | "8x" | "4x" | "2x" | "1x";
   /**
    * Dimension size for vector fields, defines the number of dimensions in the vector
    */
@@ -116,17 +152,20 @@ export type PropertyMapping = {
    */
   Properties?: Record<string, PropertyMapping>;
   /**
+   * The distance function used for k-NN search (field-level, outside Method)
+   */
+  SpaceType?: "l2" | "l1" | "linf" | "cosinesimil" | "innerproduct" | "hamming";
+  /**
    * The field data type. Must be a valid OpenSearch field type.
    */
-  Type: "text" | "knn_vector";
+  Type: "text" | "knn_vector" | "keyword" | "integer";
   /**
    * Default value for the field when not specified in a document
    */
   Value?: string;
 };
 /**
- * Resource type definition for `AWS::OpenSearchServerless::Index`.
- * An OpenSearch Serverless index resource
+ * Resource Type definition for AWS::OpenSearchServerless::Index
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-index.html}
  */
 export class OpenSearchServerlessIndex extends $Resource<

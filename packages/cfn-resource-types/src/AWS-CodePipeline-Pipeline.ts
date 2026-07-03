@@ -61,6 +61,11 @@ export type CodePipelinePipelineProperties = {
  */
 export type CodePipelinePipelineAttributes = {
   /**
+   * The Amazon Resource Name (ARN) of the pipeline.
+   * @pattern `arn:aws(-[\w]+)*:codepipeline:[a-z0-9-]+:[0-9]{12}:.+`
+   */
+  Arn: string;
+  /**
    * The version of the pipeline.
    */
   Version: string;

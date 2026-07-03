@@ -1,5 +1,5 @@
 {
-  "$hash": "9cc47aa281f93910c00b84acc0ba4569f6476f69",
+  "$hash": "4be480558faad4a233eae839aec5041aee0433f7",
   "$id": "aws-bedrock-knowledgebase.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -210,7 +210,6 @@
           "$ref": "#/definitions/ManagedKnowledgeBaseServerSideEncryptionConfiguration"
         }
       },
-      "required": ["EmbeddingModelArn"],
       "type": "object"
     },
     "ManagedKnowledgeBaseServerSideEncryptionConfiguration": {

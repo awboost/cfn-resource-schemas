@@ -1,50 +1,26 @@
-- added `AWS::Cognito::UserPoolRegionalConfigurationAttachment`
-- added `AWS::Cognito::UserPoolReplica`
-- added `AWS::Connect::TestCase`
-- updated `AWS::Athena::DataCatalog`
-  - updated `tagging`
-- updated `AWS::Athena::WorkGroup`
-  - updated `tagging`
-  - updated `writeOnlyProperties`
-  - updated handler permissions
-- updated `AWS::CloudWatch::InsightRule`
-  - added `additionalIdentifiers`
-  - added `tagging`
-  - removed property `Id`
-  - updated `primaryIdentifier`
+- updated `AWS::Bedrock::KnowledgeBase`
+  - updated definition `ManagedKnowledgeBaseConfiguration`
+- updated `AWS::CodePipeline::Pipeline`
+  - added property `Arn`
   - updated `readOnlyProperties`
-  - updated `required`
-  - updated definition `Tag`
-  - updated handler permissions
-  - updated property `ApplyOnTransformedLogs`
-  - updated property `RuleState`
-  - updated property `Tags`
-- updated `AWS::Cognito::IdentityPool`
+- updated `AWS::ElasticLoadBalancingV2::ListenerRule`
+  - added definition `Tag`
+  - added property `Tags`
   - updated `tagging`
   - updated handler permissions
-- updated `AWS::Cognito::UserPool`
-  - added definition `EncryptionKeyArnType`
-  - added definition `EncryptionKeyType`
-  - added definition `IssuerConfiguration`
-  - added definition `KeyConfiguration`
-  - added property `IssuerConfiguration`
-  - added property `KeyConfiguration`
-  - updated handler permissions
-- updated `AWS::Connect::PhoneNumber`
+- updated `AWS::GlobalAccelerator::CrossAccountAttachment`
   - updated `tagging`
-- updated `AWS::ECS::CapacityProvider`
-  - updated definition `InstanceRequirementsRequest`
-- updated `AWS::ECS::DaemonTaskDefinition`
-  - updated property `IpcMode`
-  - updated property `PidMode`
-- updated `AWS::ECS::Service`
-  - added definition `ThresholdConfiguration`
-  - updated definition `DeploymentCircuitBreaker`
-- updated `AWS::EVS::Environment`
-  - updated `required`
-  - updated property `VcfVersion`
-- updated `AWS::Glue::Catalog`
   - updated handler permissions
-- updated `AWS::Lambda::Function`
-  - updated definition `DurableConfig`
-  - updated handler permissions
+- updated `AWS::ImageBuilder::ContainerRecipe`
+  - added `propertyTransform`
+- updated `AWS::ImageBuilder::ImagePipeline`
+  - added property `ImageTags`
+- updated `AWS::ImageBuilder::ImageRecipe`
+  - added `propertyTransform`
+  - updated `createOnlyProperties`
+- updated `AWS::OSIS::Pipeline`
+  - updated property `VpcEndpointService`
+- updated `AWS::OpenSearchServerless::Index`
+  - updated `createOnlyProperties`
+  - updated definition `IndexSettings`
+  - updated definition `PropertyMapping`

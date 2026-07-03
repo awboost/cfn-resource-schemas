@@ -34,6 +34,10 @@ export type ImageBuilderImagePipelineProperties = {
    */
   ImageScanningConfiguration?: ImageScanningConfiguration;
   /**
+   * The tags to be applied to images created by this pipeline.
+   */
+  ImageTags?: Record<string, string>;
+  /**
    * The image tests configuration of the image pipeline.
    */
   ImageTestsConfiguration?: ImageTestsConfiguration;

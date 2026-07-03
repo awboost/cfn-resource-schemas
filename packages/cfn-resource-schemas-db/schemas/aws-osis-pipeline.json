@@ -1,5 +1,5 @@
 {
-  "$hash": "e11f69193e63f593f52414f1e3ee716ae33c9dfa",
+  "$hash": "a7aa26d019bbeff7c7e1f2809d57686e432f720e",
   "$id": "aws-osis-pipeline.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PipelineName"],
@@ -262,7 +262,7 @@
     "VpcEndpointService": {
       "description": "The VPC endpoint service name for the pipeline.",
       "maxLength": 128,
-      "minLength": 1,
+      "minLength": 0,
       "type": "string"
     },
     "VpcEndpoints": {

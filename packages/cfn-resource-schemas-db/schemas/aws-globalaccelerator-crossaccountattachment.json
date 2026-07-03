@@ -1,5 +1,5 @@
 {
-  "$hash": "92c64e34b8a8bc72006c818c75c054c581879dfd",
+  "$hash": "bf0fbc832c340a20de86092b964796d6fe20c487",
   "$id": "aws-globalaccelerator-crossaccountattachment.json",
   "additionalProperties": false,
   "definitions": {
@@ -40,7 +40,8 @@
       "permissions": [
         "globalaccelerator:DescribeCrossAccountAttachment",
         "globalaccelerator:CreateCrossAccountAttachment",
-        "globalaccelerator:TagResource"
+        "globalaccelerator:TagResource",
+        "globalaccelerator:ListTagsForResource"
       ]
     },
     "delete": {
@@ -53,14 +54,18 @@
       "permissions": ["globalaccelerator:ListCrossAccountAttachments"]
     },
     "read": {
-      "permissions": ["globalaccelerator:DescribeCrossAccountAttachment"]
+      "permissions": [
+        "globalaccelerator:DescribeCrossAccountAttachment",
+        "globalaccelerator:ListTagsForResource"
+      ]
     },
     "update": {
       "permissions": [
         "globalaccelerator:UpdateCrossAccountAttachment",
         "globalaccelerator:DescribeCrossAccountAttachment",
         "globalaccelerator:TagResource",
-        "globalaccelerator:UntagResource"
+        "globalaccelerator:UntagResource",
+        "globalaccelerator:ListTagsForResource"
       ]
     }
   },
@@ -93,7 +98,12 @@
   "required": ["Name"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-globalaccelerator",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "globalaccelerator:TagResource",
+      "globalaccelerator:UntagResource",
+      "globalaccelerator:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

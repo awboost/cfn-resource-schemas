@@ -1,15 +1,54 @@
 {
-  "$hash": "5b714e82e16381134cfc285ac702c25f5cce79c7",
+  "$hash": "273d7ff66aab583048d6d2f57c05d8d7ccceef9d",
   "$id": "aws-opensearchserverless-index.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/IndexName",
-    "/properties/CollectionEndpoint"
+    "/properties/CollectionEndpoint",
+    "/properties/Settings/Analysis"
   ],
   "definitions": {
     "IndexSettings": {
       "additionalProperties": false,
       "properties": {
+        "Analysis": {
+          "additionalProperties": false,
+          "description": "Custom analysis configuration including analyzers, tokenizers, and filters",
+          "properties": {
+            "Analyzer": {
+              "additionalProperties": false,
+              "description": "Custom analyzer definitions",
+              "patternProperties": {
+                "^[A-Za-z0-9_.-]{1,64}$": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "CharFilter": {
+                      "description": "Character filters to apply",
+                      "items": { "type": "string" },
+                      "type": "array"
+                    },
+                    "Filter": {
+                      "description": "Token filters to apply",
+                      "items": { "type": "string" },
+                      "type": "array"
+                    },
+                    "Tokenizer": {
+                      "description": "The tokenizer to use",
+                      "type": "string"
+                    },
+                    "Type": {
+                      "description": "The analyzer type (e.g. custom, standard, simple)",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
         "Index": {
           "additionalProperties": false,
           "properties": {
@@ -34,6 +73,15 @@
     "PropertyMapping": {
       "additionalProperties": false,
       "properties": {
+        "Analyzer": {
+          "description": "The analyzer to use for this field (for text and keyword fields)",
+          "type": "string"
+        },
+        "CompressionLevel": {
+          "description": "The compression level for knn_vector fields",
+          "enum": ["16x", "32x", "8x", "4x", "2x", "1x"],
+          "type": "string"
+        },
         "Dimension": {
           "description": "Dimension size for vector fields, defines the number of dimensions in the vector",
           "type": "integer"
@@ -101,9 +149,21 @@
           },
           "type": "object"
         },
+        "SpaceType": {
+          "description": "The distance function used for k-NN search (field-level, outside Method)",
+          "enum": [
+            "l2",
+            "l1",
+            "linf",
+            "cosinesimil",
+            "innerproduct",
+            "hamming"
+          ],
+          "type": "string"
+        },
         "Type": {
           "description": "The field data type. Must be a valid OpenSearch field type.",
-          "enum": ["text", "knn_vector"],
+          "enum": ["text", "knn_vector", "keyword", "integer"],
           "type": "string"
         },
         "Value": {
@@ -115,7 +175,7 @@
       "type": "object"
     }
   },
-  "description": "An OpenSearch Serverless index resource",
+  "description": "Resource Type definition for AWS::OpenSearchServerless::Index",
   "handlers": {
     "create": { "permissions": ["aoss:APIAccessAll"] },
     "delete": { "permissions": ["aoss:APIAccessAll"] },

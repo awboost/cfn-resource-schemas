@@ -1,5 +1,5 @@
 {
-  "$hash": "f2e5b773a7ad615feb3056ffa19ec283a11efcd8",
+  "$hash": "fbc35eed737d9f180543a588f3a2f60a9cf605b7",
   "$id": "aws-imagebuilder-imagerecipe.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -9,7 +9,9 @@
     "/properties/ParentImage",
     "/properties/Description",
     "/properties/BlockDeviceMappings",
-    "/properties/WorkingDirectory"
+    "/properties/WorkingDirectory",
+    "/properties/AdditionalInstanceConfiguration",
+    "/properties/AmiTags"
   ],
   "definitions": {
     "AdditionalInstanceConfiguration": {
@@ -245,6 +247,9 @@
       "description": "The working directory to be used during build and test workflows.",
       "type": "string"
     }
+  },
+  "propertyTransform": {
+    "/properties/Version": "$join([\"^\", $replace($replace(Version, \".\", \"\\\\.\"), \"x\", \"[0-9]+\"), \"$\"])"
   },
   "readOnlyProperties": [
     "/properties/Arn",

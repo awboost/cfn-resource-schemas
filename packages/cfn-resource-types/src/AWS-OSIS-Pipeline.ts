@@ -78,7 +78,7 @@ export type OSISPipelineAttributes = {
   PipelineArn: string;
   /**
    * The VPC endpoint service name for the pipeline.
-   * @minLength `1`
+   * @minLength `0`
    * @maxLength `128`
    */
   VpcEndpointService: string;

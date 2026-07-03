@@ -248,7 +248,7 @@ export type ManagedKnowledgeBaseConfiguration = {
    * @maxLength `2048`
    * @pattern `^(arn:aws(-[^:]+)?:[a-z0-9-]+:[a-z0-9-]{1,20}:[0-9]{0,12}:[a-zA-Z0-9-:/._+]+)$`
    */
-  EmbeddingModelArn: string;
+  EmbeddingModelArn?: string;
   /**
    * The embeddings model configuration details for the vector model used in Knowledge Base.
    */

@@ -1,5 +1,5 @@
 {
-  "$hash": "ee3e56ead4bccaa9eeb6a3188136b17a3ca1ddef",
+  "$hash": "23f655785a34c477dc6d89b6f5fcf1fc62d17600",
   "$id": "aws-imagebuilder-imagepipeline.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -238,6 +238,12 @@
     "ImageScanningConfiguration": {
       "$ref": "#/definitions/ImageScanningConfiguration",
       "description": "Contains settings for vulnerability scans."
+    },
+    "ImageTags": {
+      "additionalProperties": false,
+      "description": "The tags to be applied to images created by this pipeline.",
+      "patternProperties": { ".{1,}": { "type": "string" } },
+      "type": "object"
     },
     "ImageTestsConfiguration": {
       "$ref": "#/definitions/ImageTestsConfiguration",

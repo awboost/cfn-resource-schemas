@@ -1,5 +1,5 @@
 {
-  "$hash": "bd049caa9b2f0583d1e7d49147c056b4e827eb35",
+  "$hash": "addda5a903ac2c14dcf023b53872a0d4623a1174",
   "$id": "aws-codepipeline-pipeline.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -587,6 +587,11 @@
   },
   "primaryIdentifier": ["/properties/Name"],
   "properties": {
+    "Arn": {
+      "description": "The Amazon Resource Name (ARN) of the pipeline.",
+      "pattern": "arn:aws(-[\\w]+)*:codepipeline:[a-z0-9-]+:[0-9]{12}:.+",
+      "type": "string"
+    },
     "ArtifactStore": {
       "$ref": "#/definitions/ArtifactStore",
       "description": "The S3 bucket where artifacts for the pipeline are stored."
@@ -653,7 +658,7 @@
       "type": "string"
     }
   },
-  "readOnlyProperties": ["/properties/Version"],
+  "readOnlyProperties": ["/properties/Version", "/properties/Arn"],
   "required": ["Stages", "RoleArn"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-codepipeline",
   "tagging": {
