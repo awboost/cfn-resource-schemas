@@ -26,7 +26,6 @@ export type ElasticLoadBalancingV2ListenerRuleProperties = {
      If you try to reorder rules by updating their priorities, do not specify a new priority if an existing rule already uses this priority, as this can cause an error. If you need to reuse a priority with a different rule, you must remove it as a priority first, and then specify it in a subsequent update.
      */
   Priority: number;
-  Tags?: Tag[];
   Transforms?: Transform[];
 };
 /**
@@ -468,14 +467,6 @@ export type SourceIpConfig = {
      If you specify multiple addresses, the condition is satisfied if the source IP address of the request matches one of the CIDR blocks. This condition is not satisfied by the addresses in the X-Forwarded-For header.
      */
   Values?: string[];
-};
-/**
- * Type definition for `AWS::ElasticLoadBalancingV2::ListenerRule.Tag`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-tag.html}
- */
-export type Tag = {
-  Key: string;
-  Value: string;
 };
 /**
  * Type definition for `AWS::ElasticLoadBalancingV2::ListenerRule.TargetGroupStickinessConfig`.

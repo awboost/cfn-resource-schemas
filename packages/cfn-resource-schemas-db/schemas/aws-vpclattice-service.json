@@ -1,5 +1,5 @@
 {
-  "$hash": "dd86e1804119f7c786ac659eb77feaf7ac40f2fe",
+  "$hash": "64c06baad185b52bb73824d99b72f1d85745a9f5",
   "$id": "aws-vpclattice-service.json",
   "additionalIdentifiers": [["/properties/Id"], ["/properties/Name"]],
   "additionalProperties": false,
@@ -87,6 +87,7 @@
       "pattern": "^svc-[0-9a-z]{17}$",
       "type": "string"
     },
+    "IdleTimeoutSeconds": { "maximum": 600, "minimum": 60, "type": "integer" },
     "LastUpdatedAt": { "type": "string" },
     "Name": {
       "maxLength": 40,

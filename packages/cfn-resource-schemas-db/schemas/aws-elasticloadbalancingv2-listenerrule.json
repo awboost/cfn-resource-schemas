@@ -1,5 +1,5 @@
 {
-  "$hash": "9e66f569af0aa74fbe4a9cc7289d9540bafc3621",
+  "$hash": "4bc849344cd682264b84373ffb5e7e15e1fa14a5",
   "$id": "aws-elasticloadbalancingv2-listenerrule.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ListenerArn"],
@@ -445,16 +445,6 @@
       },
       "type": "object"
     },
-    "Tag": {
-      "additionalProperties": false,
-      "description": "",
-      "properties": {
-        "Key": { "type": "string" },
-        "Value": { "type": "string" }
-      },
-      "required": ["Value", "Key"],
-      "type": "object"
-    },
     "TargetGroupStickinessConfig": {
       "additionalProperties": false,
       "description": "Information about the target group stickiness for a rule.",
@@ -513,7 +503,6 @@
       "permissions": [
         "elasticloadbalancing:CreateRule",
         "elasticloadbalancing:DescribeRules",
-        "elasticloadbalancing:AddTags",
         "cognito-idp:DescribeUserPoolClient"
       ]
     },
@@ -543,20 +532,12 @@
       },
       "permissions": ["elasticloadbalancing:DescribeRules"]
     },
-    "read": {
-      "permissions": [
-        "elasticloadbalancing:DescribeRules",
-        "elasticloadbalancing:DescribeTags"
-      ]
-    },
+    "read": { "permissions": ["elasticloadbalancing:DescribeRules"] },
     "update": {
       "permissions": [
         "elasticloadbalancing:ModifyRule",
         "elasticloadbalancing:SetRulePriorities",
-        "elasticloadbalancing:DescribeRules",
-        "elasticloadbalancing:AddTags",
-        "elasticloadbalancing:RemoveTags",
-        "elasticloadbalancing:DescribeTags"
+        "elasticloadbalancing:DescribeRules"
       ]
     }
   },
@@ -586,13 +567,6 @@
       "type": "integer"
     },
     "RuleArn": { "description": "", "type": "string" },
-    "Tags": {
-      "description": "",
-      "insertionOrder": false,
-      "items": { "$ref": "#/definitions/Tag" },
-      "type": "array",
-      "uniqueItems": false
-    },
     "Transforms": {
       "description": "",
       "insertionOrder": false,
@@ -605,16 +579,10 @@
   "required": ["Actions", "Priority", "Conditions"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-elasticloadbalancingv2",
   "tagging": {
-    "cloudFormationSystemTags": true,
-    "permissions": [
-      "elasticloadbalancing:AddTags",
-      "elasticloadbalancing:DescribeTags",
-      "elasticloadbalancing:RemoveTags"
-    ],
-    "tagOnCreate": true,
-    "tagProperty": "/properties/Tags",
-    "tagUpdatable": true,
-    "taggable": true
+    "cloudFormationSystemTags": false,
+    "tagOnCreate": false,
+    "tagUpdatable": false,
+    "taggable": false
   },
   "typeName": "AWS::ElasticLoadBalancingV2::ListenerRule",
   "writeOnlyProperties": [

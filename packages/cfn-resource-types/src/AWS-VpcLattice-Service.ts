@@ -18,6 +18,11 @@ export type VpcLatticeServiceProperties = {
    */
   CustomDomainName?: string;
   /**
+   * @min `60`
+   * @max `600`
+   */
+  IdleTimeoutSeconds?: number;
+  /**
    * @minLength `3`
    * @maxLength `40`
    * @pattern `^(?!svc-)(?![-])(?!.*[-]$)(?!.*[-]{2})[a-z0-9-]+$`

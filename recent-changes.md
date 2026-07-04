@@ -1,26 +1,9 @@
-- updated `AWS::Bedrock::KnowledgeBase`
-  - updated definition `ManagedKnowledgeBaseConfiguration`
-- updated `AWS::CodePipeline::Pipeline`
-  - added property `Arn`
-  - updated `readOnlyProperties`
+- updated `AWS::Connect::RoutingProfile`
+  - updated `tagging`
 - updated `AWS::ElasticLoadBalancingV2::ListenerRule`
-  - added definition `Tag`
-  - added property `Tags`
+  - removed definition `Tag`
+  - removed property `Tags`
   - updated `tagging`
   - updated handler permissions
-- updated `AWS::GlobalAccelerator::CrossAccountAttachment`
-  - updated `tagging`
-  - updated handler permissions
-- updated `AWS::ImageBuilder::ContainerRecipe`
-  - added `propertyTransform`
-- updated `AWS::ImageBuilder::ImagePipeline`
-  - added property `ImageTags`
-- updated `AWS::ImageBuilder::ImageRecipe`
-  - added `propertyTransform`
-  - updated `createOnlyProperties`
-- updated `AWS::OSIS::Pipeline`
-  - updated property `VpcEndpointService`
-- updated `AWS::OpenSearchServerless::Index`
-  - updated `createOnlyProperties`
-  - updated definition `IndexSettings`
-  - updated definition `PropertyMapping`
+- updated `AWS::VpcLattice::Service`
+  - added property `IdleTimeoutSeconds`
