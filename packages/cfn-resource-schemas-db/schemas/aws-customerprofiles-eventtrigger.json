@@ -1,5 +1,5 @@
 {
-  "$hash": "f24d82940f7efb92788b04c83fd13f77a4df4801",
+  "$hash": "95ac29afc3252626b9aabbd8e8beae15c532f75f",
   "$id": "aws-customerprofiles-eventtrigger.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -162,7 +162,7 @@
         },
         "Unit": {
           "description": "The unit of time.",
-          "enum": ["HOURS", "DAYS", "WEEKS", "MONTHS"],
+          "enum": ["MINUTES", "HOURS", "DAYS", "WEEKS", "MONTHS"],
           "type": "string"
         },
         "Unlimited": {
@@ -171,7 +171,7 @@
         },
         "Value": {
           "description": "The amount of time of the specified unit.",
-          "maximum": 24,
+          "maximum": 60,
           "minimum": 1,
           "type": "integer"
         }
@@ -241,13 +241,16 @@
       },
       "permissions": ["profile:ListEventTriggers"]
     },
-    "read": { "permissions": ["profile:GetEventTrigger"] },
+    "read": {
+      "permissions": ["profile:GetEventTrigger", "profile:ListTagsForResource"]
+    },
     "update": {
       "permissions": [
         "profile:GetEventTrigger",
         "profile:UpdateEventTrigger",
         "profile:UntagResource",
-        "profile:TagResource"
+        "profile:TagResource",
+        "profile:ListTagsForResource"
       ]
     }
   },

@@ -1,5 +1,5 @@
 {
-  "$hash": "3b0d212cf59ce842eb17cc2c4de12147e2122303",
+  "$hash": "dd1218066f8b2ad5207b3402f241d6632f70e292",
   "$id": "aws-customerprofiles-calculatedattributedefinition.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -250,13 +250,19 @@
       },
       "permissions": ["profile:ListCalculatedAttributeDefinitions"]
     },
-    "read": { "permissions": ["profile:GetCalculatedAttributeDefinition"] },
+    "read": {
+      "permissions": [
+        "profile:GetCalculatedAttributeDefinition",
+        "profile:ListTagsForResource"
+      ]
+    },
     "update": {
       "permissions": [
         "profile:GetCalculatedAttributeDefinition",
         "profile:UpdateCalculatedAttributeDefinition",
         "profile:UntagResource",
-        "profile:TagResource"
+        "profile:TagResource",
+        "profile:ListTagsForResource"
       ]
     }
   },

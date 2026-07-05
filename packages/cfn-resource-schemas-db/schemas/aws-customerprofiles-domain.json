@@ -1,5 +1,5 @@
 {
-  "$hash": "a9295101506067eb04f86051e25c111e997d11c2",
+  "$hash": "bafae7a1bc7acec9f5549aa51e03ed980279f6aa",
   "$id": "aws-customerprofiles-domain.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DomainName"],
@@ -321,6 +321,7 @@
     "read": {
       "permissions": [
         "profile:GetDomain",
+        "profile:ListTagsForResource",
         "kms:CreateGrant",
         "kms:DescribeKey",
         "kms:GetKeyPolicy",
@@ -334,6 +335,7 @@
         "profile:UpdateDomain",
         "profile:UntagResource",
         "profile:TagResource",
+        "profile:ListTagsForResource",
         "kms:CreateGrant",
         "kms:DescribeKey",
         "kms:GetKeyPolicy",

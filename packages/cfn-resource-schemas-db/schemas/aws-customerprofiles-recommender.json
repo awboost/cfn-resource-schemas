@@ -1,5 +1,5 @@
 {
-  "$hash": "0773505b69251a78c75373d0bbe5e2fda813dbd8",
+  "$hash": "0623ce1336e3f96d096a4681bce43966d01fc70e",
   "$id": "aws-customerprofiles-recommender.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -180,6 +180,7 @@
     "read": {
       "permissions": [
         "profile:GetRecommender",
+        "profile:ListTagsForResource",
         "kms:GenerateDataKey",
         "kms:Decrypt"
       ]

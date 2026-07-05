@@ -1,9 +1,16 @@
-- updated `AWS::Connect::RoutingProfile`
-  - updated `tagging`
-- updated `AWS::ElasticLoadBalancingV2::ListenerRule`
-  - removed definition `Tag`
-  - removed property `Tags`
-  - updated `tagging`
+- added `AWS::CustomerProfiles::DomainObjectType`
+- updated `AWS::CustomerProfiles::CalculatedAttributeDefinition`
   - updated handler permissions
-- updated `AWS::VpcLattice::Service`
-  - added property `IdleTimeoutSeconds`
+- updated `AWS::CustomerProfiles::Domain`
+  - updated handler permissions
+- updated `AWS::CustomerProfiles::EventStream`
+  - updated handler permissions
+- updated `AWS::CustomerProfiles::EventTrigger`
+  - updated definition `Period`
+  - updated handler permissions
+- updated `AWS::CustomerProfiles::Integration`
+  - updated handler permissions
+- updated `AWS::CustomerProfiles::ObjectType`
+  - updated handler permissions
+- updated `AWS::CustomerProfiles::Recommender`
+  - updated handler permissions

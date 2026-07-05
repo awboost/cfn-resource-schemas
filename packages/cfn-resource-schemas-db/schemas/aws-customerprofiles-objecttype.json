@@ -1,5 +1,5 @@
 {
-  "$hash": "6af079f93ddc2988eb98a0f0aac7e14f12f46848",
+  "$hash": "51cba7369df77afac173bf68c527451a6dc02933",
   "$id": "aws-customerprofiles-objecttype.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -151,6 +151,7 @@
     "read": {
       "permissions": [
         "profile:GetProfileObjectType",
+        "profile:ListTagsForResource",
         "kms:GenerateDataKey",
         "kms:Decrypt"
       ]
@@ -161,6 +162,7 @@
         "profile:PutProfileObjectType",
         "profile:UntagResource",
         "profile:TagResource",
+        "profile:ListTagsForResource",
         "kms:GenerateDataKey",
         "kms:Decrypt"
       ]

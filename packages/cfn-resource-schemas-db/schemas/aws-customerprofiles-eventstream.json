@@ -1,5 +1,5 @@
 {
-  "$hash": "24d1c603085ab33505701aaf14703ee0f8a767d8",
+  "$hash": "0bd71fe71c831bdfd6bce2c6069e2ce191339097",
   "$id": "aws-customerprofiles-eventstream.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -66,14 +66,19 @@
       "permissions": ["profile:ListEventStreams"]
     },
     "read": {
-      "permissions": ["profile:GetEventStream", "kinesis:DescribeStreamSummary"]
+      "permissions": [
+        "profile:GetEventStream",
+        "profile:ListTagsForResource",
+        "kinesis:DescribeStreamSummary"
+      ]
     },
     "update": {
       "permissions": [
         "kinesis:DescribeStreamSummary",
         "profile:GetEventStream",
         "profile:UntagResource",
-        "profile:TagResource"
+        "profile:TagResource",
+        "profile:ListTagsForResource"
       ]
     }
   },

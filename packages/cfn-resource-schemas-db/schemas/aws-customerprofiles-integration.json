@@ -1,5 +1,5 @@
 {
-  "$hash": "937a723fc094a5da9b957c82ab6386045fbbc5d1",
+  "$hash": "5053b04eab3d2637b135ac46f6d2176fe455cf3a",
   "$id": "aws-customerprofiles-integration.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DomainName", "/properties/Uri"],
@@ -451,7 +451,9 @@
       },
       "permissions": ["profile:ListIntegrations"]
     },
-    "read": { "permissions": ["profile:GetIntegration"] },
+    "read": {
+      "permissions": ["profile:GetIntegration", "profile:ListTagsForResource"]
+    },
     "update": {
       "permissions": [
         "profile:PutIntegration",
@@ -469,6 +471,7 @@
         "events:PutEvents",
         "profile:UntagResource",
         "profile:TagResource",
+        "profile:ListTagsForResource",
         "connect:DescribeInstance",
         "ds:DescribeDirectories"
       ]

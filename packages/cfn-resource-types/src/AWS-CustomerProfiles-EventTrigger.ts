@@ -184,7 +184,7 @@ export type Period = {
   /**
    * The unit of time.
    */
-  Unit: "HOURS" | "DAYS" | "WEEKS" | "MONTHS";
+  Unit: "MINUTES" | "HOURS" | "DAYS" | "WEEKS" | "MONTHS";
   /**
    * If set to true, there is no limit on the number of destination invocations per profile. The default is false.
    */
@@ -192,7 +192,7 @@ export type Period = {
   /**
    * The amount of time of the specified unit.
    * @min `1`
-   * @max `24`
+   * @max `60`
    */
   Value: number;
 };
