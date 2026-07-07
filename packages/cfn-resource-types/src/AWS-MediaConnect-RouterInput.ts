@@ -14,6 +14,7 @@ export type MediaConnectRouterInputProperties = {
    * The configuration settings for a router input.
    */
   Configuration: RouterInputConfiguration;
+  ContentQualityAnalysisConfiguration?: RouterContentQualityAnalysisConfiguration;
   /**
    * The configuration settings for maintenance operations, including preferred maintenance windows and schedules.
    */
@@ -52,6 +53,7 @@ export type MediaConnectRouterInputAttributes = {
    * @pattern `^arn:(aws[a-zA-Z-]*):mediaconnect:[a-z0-9-]+:[0-9]{12}:routerInput:[a-z0-9]{12}$`
    */
   Arn: string;
+  ContentQualityAnalysisType: RouterContentQualityAnalysisType;
   /**
    * The timestamp when the router input was created.
    */
@@ -82,6 +84,44 @@ export type MediaConnectRouterInputAttributes = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routerinput-automaticencryptionkeyconfiguration.html}
  */
 export type AutomaticEncryptionKeyConfiguration = Record<string, any>;
+/**
+ * Type definition for `AWS::MediaConnect::RouterInput.BlackFramesConfiguration`.
+ * Detects black frames in the router input's source content and reports them through a CloudWatch metric, an EventBridge event, and a router input message.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routerinput-blackframesconfiguration.html}
+ */
+export type BlackFramesConfiguration = {
+  State: ContentQualityAnalysisState;
+  /**
+   * The number of consecutive seconds of black frames that MediaConnect must detect before it reports an issue.
+   * @min `10`
+   * @max `60`
+   */
+  ThresholdSeconds: number;
+};
+/**
+ * Type definition for `AWS::MediaConnect::RouterInput.ContentQualityAnalysisFeatureConfiguration`.
+ * Configures the content quality analysis features for the router input.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routerinput-contentqualityanalysisfeatureconfiguration.html}
+ */
+export type ContentQualityAnalysisFeatureConfiguration = {
+  /**
+   * Detects black frames in the router input's source content and reports them through a CloudWatch metric, an EventBridge event, and a router input message.
+   */
+  BlackFrames?: BlackFramesConfiguration;
+  /**
+   * Detects frozen video frames in the router input's source content and reports them through a CloudWatch metric, an EventBridge event, and a router input message.
+   */
+  FrozenFrames?: FrozenFramesConfiguration;
+  /**
+   * Detects silent audio in the router input's source content and reports it through a CloudWatch metric, an EventBridge event, and a router input message.
+   */
+  SilentAudio?: SilentAudioConfiguration;
+};
+/**
+ * Type definition for `AWS::MediaConnect::RouterInput.ContentQualityAnalysisState`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routerinput-contentqualityanalysisstate.html}
+ */
+export type ContentQualityAnalysisState = "ENABLED" | "DISABLED";
 /**
  * Type definition for `AWS::MediaConnect::RouterInput.Day`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routerinput-day.html}
@@ -200,6 +240,20 @@ export type FlowTransitEncryptionKeyType = "SECRETS_MANAGER" | "AUTOMATIC";
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routerinput-forwarderrorcorrectionstate.html}
  */
 export type ForwardErrorCorrectionState = "ENABLED" | "DISABLED";
+/**
+ * Type definition for `AWS::MediaConnect::RouterInput.FrozenFramesConfiguration`.
+ * Detects frozen video frames in the router input's source content and reports them through a CloudWatch metric, an EventBridge event, and a router input message.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routerinput-frozenframesconfiguration.html}
+ */
+export type FrozenFramesConfiguration = {
+  State: ContentQualityAnalysisState;
+  /**
+   * The number of consecutive seconds of a frozen frame that MediaConnect must detect before it reports an issue.
+   * @min `10`
+   * @max `60`
+   */
+  ThresholdSeconds: number;
+};
 /**
  * Type definition for `AWS::MediaConnect::RouterInput.MaintenanceConfiguration`.
  * The configuration settings for maintenance operations, including preferred maintenance windows and schedules.
@@ -374,6 +428,21 @@ export type RistRouterInputConfiguration = {
    */
   RecoveryLatencyMilliseconds: number;
 };
+/**
+ * Type definition for `AWS::MediaConnect::RouterInput.RouterContentQualityAnalysisConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routerinput-routercontentqualityanalysisconfiguration.html}
+ */
+export type RouterContentQualityAnalysisConfiguration = {
+  /**
+   * Configures the content quality analysis features for the router input.
+   */
+  ContentLevel: ContentQualityAnalysisFeatureConfiguration;
+};
+/**
+ * Type definition for `AWS::MediaConnect::RouterInput.RouterContentQualityAnalysisType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routerinput-routercontentqualityanalysistype.html}
+ */
+export type RouterContentQualityAnalysisType = "CONTENT_LEVEL";
 /**
  * Type definition for `AWS::MediaConnect::RouterInput.RouterInputConfiguration`.
  * The configuration settings for a router input.
@@ -551,6 +620,20 @@ export type SecretsManagerEncryptionKeyConfiguration = {
    * @pattern `^arn:(aws[a-zA-Z-]*):secretsmanager:[a-z0-9-]+:[0-9]{12}:secret:[a-zA-Z0-9/_+=.@-]+$`
    */
   SecretArn: string;
+};
+/**
+ * Type definition for `AWS::MediaConnect::RouterInput.SilentAudioConfiguration`.
+ * Detects silent audio in the router input's source content and reports it through a CloudWatch metric, an EventBridge event, and a router input message.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routerinput-silentaudioconfiguration.html}
+ */
+export type SilentAudioConfiguration = {
+  State: ContentQualityAnalysisState;
+  /**
+   * The number of consecutive seconds of silence that MediaConnect must detect before it reports an issue.
+   * @min `10`
+   * @max `60`
+   */
+  ThresholdSeconds: number;
 };
 /**
  * Type definition for `AWS::MediaConnect::RouterInput.SrtCallerRouterInputConfiguration`.

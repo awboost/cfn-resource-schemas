@@ -1,5 +1,5 @@
 {
-  "$hash": "4f48220a6316e4b7558151eb737f384bc5ebc653",
+  "$hash": "594f44c9446295a888ab433d9ed2361b3db1a8cc",
   "$id": "aws-mediaconnect-routeroutput.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -488,6 +488,7 @@
         "mediaconnect:GetRouterOutput",
         "mediaconnect:ListRouterOutputs",
         "ec2:CreateNetworkInterface",
+        "ec2:CreateTags",
         "iam:PassRole",
         "mediaconnect:AssociateRouterNetworkInterface",
         "mediaconnect:CreateRouterOutput",
@@ -515,6 +516,7 @@
         "mediaconnect:UntagResource",
         "mediaconnect:GetRouterOutput",
         "ec2:CreateNetworkInterface",
+        "ec2:CreateTags",
         "iam:PassRole",
         "mediaconnect:AssociateRouterNetworkInterface",
         "mediaconnect:UpdateFlowSource",

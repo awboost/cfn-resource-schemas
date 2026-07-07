@@ -1,16 +1,55 @@
-- added `AWS::CustomerProfiles::DomainObjectType`
-- updated `AWS::CustomerProfiles::CalculatedAttributeDefinition`
+- updated `AWS::AccessAnalyzer::Analyzer`
+  - updated property `Arn`
+- updated `AWS::MediaConnect::RouterInput`
+  - added definition `BlackFramesConfiguration`
+  - added definition `ContentQualityAnalysisFeatureConfiguration`
+  - added definition `ContentQualityAnalysisState`
+  - added definition `FrozenFramesConfiguration`
+  - added definition `RouterContentQualityAnalysisConfiguration`
+  - added definition `RouterContentQualityAnalysisType`
+  - added definition `SilentAudioConfiguration`
+  - added property `ContentQualityAnalysisConfiguration`
+  - added property `ContentQualityAnalysisType`
+  - removed definition `Unit`
+  - updated `readOnlyProperties`
   - updated handler permissions
-- updated `AWS::CustomerProfiles::Domain`
+- updated `AWS::MediaConnect::RouterOutput`
   - updated handler permissions
-- updated `AWS::CustomerProfiles::EventStream`
+- updated `AWS::ServiceCatalog::AcceptedPortfolioShare`
+  - added `tagging`
+  - added `writeOnlyProperties`
+  - removed `readOnlyProperties`
+  - removed property `Id`
+  - updated `createOnlyProperties`
+  - updated `primaryIdentifier`
   - updated handler permissions
-- updated `AWS::CustomerProfiles::EventTrigger`
-  - updated definition `Period`
+  - updated property `AcceptLanguage`
+  - updated property `PortfolioId`
+- updated `AWS::ServiceCatalog::CloudFormationProduct`
+  - added `sourceUrl`
+  - added `tagging`
+  - added `writeOnlyProperties`
+  - updated `readOnlyProperties`
+  - updated definition `CodeStarParameters`
+  - updated definition `ConnectionParameters`
+  - updated definition `ProvisioningArtifactProperties`
+  - updated definition `SourceConnection`
+  - updated definition `Tag`
   - updated handler permissions
-- updated `AWS::CustomerProfiles::Integration`
-  - updated handler permissions
-- updated `AWS::CustomerProfiles::ObjectType`
-  - updated handler permissions
-- updated `AWS::CustomerProfiles::Recommender`
-  - updated handler permissions
+  - updated property `AcceptLanguage`
+  - updated property `Description`
+  - updated property `Distributor`
+  - updated property `Id`
+  - updated property `Name`
+  - updated property `Owner`
+  - updated property `ProductName`
+  - updated property `ProductType`
+  - updated property `ProvisioningArtifactIds`
+  - updated property `ProvisioningArtifactNames`
+  - updated property `ProvisioningArtifactParameters`
+  - updated property `ReplaceProvisioningArtifacts`
+  - updated property `SourceConnection`
+  - updated property `SupportDescription`
+  - updated property `SupportEmail`
+  - updated property `SupportUrl`
+  - updated property `Tags`

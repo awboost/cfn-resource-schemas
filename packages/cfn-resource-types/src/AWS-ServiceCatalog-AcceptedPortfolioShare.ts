@@ -5,15 +5,17 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-acceptedportfolioshare.html}
  */
 export type ServiceCatalogAcceptedPortfolioShareProperties = {
+  /**
+   * The language code.
+   * @pattern `^(en|jp|zh)$`
+   */
   AcceptLanguage?: string;
+  /**
+   * The portfolio identifier.
+   * @minLength `1`
+   * @maxLength `100`
+   */
   PortfolioId: string;
-};
-/**
- * Attribute type definition for `AWS::ServiceCatalog::AcceptedPortfolioShare`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-acceptedportfolioshare.html#aws-resource-servicecatalog-acceptedportfolioshare-return-values}
- */
-export type ServiceCatalogAcceptedPortfolioShareAttributes = {
-  Id: string;
 };
 /**
  * Resource Type definition for AWS::ServiceCatalog::AcceptedPortfolioShare
@@ -22,7 +24,7 @@ export type ServiceCatalogAcceptedPortfolioShareAttributes = {
 export class ServiceCatalogAcceptedPortfolioShare extends $Resource<
   "AWS::ServiceCatalog::AcceptedPortfolioShare",
   ServiceCatalogAcceptedPortfolioShareProperties,
-  ServiceCatalogAcceptedPortfolioShareAttributes
+  Record<string, never>
 > {
   public static readonly Type = "AWS::ServiceCatalog::AcceptedPortfolioShare";
   constructor(

@@ -46,6 +46,7 @@ export type AccessAnalyzerAnalyzerAttributes = {
    * Amazon Resource Name (ARN) of the analyzer
    * @minLength `1`
    * @maxLength `1600`
+   * @pattern `^arn:[^:]+:access-analyzer(-beta|-gamma)?:[^:]*:[^:]*:analyzer/.+$`
    */
   Arn: string;
 };

@@ -1,5 +1,5 @@
 {
-  "$hash": "46c867119ecc8dd89e109ce6cc5871ddd33f4451",
+  "$hash": "a4af268f6dbd715d240c1a13eb13ca49fc04d9dd",
   "$id": "aws-accessanalyzer-analyzer.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": ["/properties/AnalyzerConfiguration"],
@@ -226,6 +226,7 @@
       "description": "Amazon Resource Name (ARN) of the analyzer",
       "maxLength": 1600,
       "minLength": 1,
+      "pattern": "^arn:[^:]+:access-analyzer(-beta|-gamma)?:[^:]*:[^:]*:analyzer/.+$",
       "type": "string"
     },
     "Tags": {

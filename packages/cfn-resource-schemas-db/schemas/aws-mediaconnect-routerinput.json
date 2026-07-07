@@ -1,5 +1,5 @@
 {
-  "$hash": "1d42e36943a8feb9b256f73b65a52f46e65dcb56",
+  "$hash": "fce68b510943ade7466f5cb0578e91fdb1220103",
   "$id": "aws-mediaconnect-routerinput.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -14,6 +14,35 @@
       "additionalProperties": false,
       "description": "Configuration settings for automatic encryption key management, where MediaConnect handles key creation and rotation.",
       "type": "object"
+    },
+    "BlackFramesConfiguration": {
+      "additionalProperties": false,
+      "description": "Detects black frames in the router input's source content and reports them through a CloudWatch metric, an EventBridge event, and a router input message.",
+      "properties": {
+        "State": { "$ref": "#/definitions/ContentQualityAnalysisState" },
+        "ThresholdSeconds": {
+          "description": "The number of consecutive seconds of black frames that MediaConnect must detect before it reports an issue.",
+          "maximum": 60,
+          "minimum": 10,
+          "type": "integer"
+        }
+      },
+      "required": ["State", "ThresholdSeconds"],
+      "type": "object"
+    },
+    "ContentQualityAnalysisFeatureConfiguration": {
+      "additionalProperties": false,
+      "description": "Configures the content quality analysis features for the router input.",
+      "properties": {
+        "BlackFrames": { "$ref": "#/definitions/BlackFramesConfiguration" },
+        "FrozenFrames": { "$ref": "#/definitions/FrozenFramesConfiguration" },
+        "SilentAudio": { "$ref": "#/definitions/SilentAudioConfiguration" }
+      },
+      "type": "object"
+    },
+    "ContentQualityAnalysisState": {
+      "enum": ["ENABLED", "DISABLED"],
+      "type": "string"
     },
     "Day": {
       "enum": [
@@ -162,6 +191,21 @@
     "ForwardErrorCorrectionState": {
       "enum": ["ENABLED", "DISABLED"],
       "type": "string"
+    },
+    "FrozenFramesConfiguration": {
+      "additionalProperties": false,
+      "description": "Detects frozen video frames in the router input's source content and reports them through a CloudWatch metric, an EventBridge event, and a router input message.",
+      "properties": {
+        "State": { "$ref": "#/definitions/ContentQualityAnalysisState" },
+        "ThresholdSeconds": {
+          "description": "The number of consecutive seconds of a frozen frame that MediaConnect must detect before it reports an issue.",
+          "maximum": 60,
+          "minimum": 10,
+          "type": "integer"
+        }
+      },
+      "required": ["State", "ThresholdSeconds"],
+      "type": "object"
     },
     "MaintenanceConfiguration": {
       "description": "The configuration settings for maintenance operations, including preferred maintenance windows and schedules.",
@@ -370,6 +414,26 @@
       },
       "required": ["Port", "RecoveryLatencyMilliseconds"],
       "type": "object"
+    },
+    "RouterContentQualityAnalysisConfiguration": {
+      "description": "The content quality analysis configuration for the router input. The content quality analysis feature only monitors the first video stream and the first audio stream it encounters within the router input source.",
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "ContentLevel": {
+              "$ref": "#/definitions/ContentQualityAnalysisFeatureConfiguration"
+            }
+          },
+          "required": ["ContentLevel"],
+          "title": "ContentLevel",
+          "type": "object"
+        }
+      ]
+    },
+    "RouterContentQualityAnalysisType": {
+      "enum": ["CONTENT_LEVEL"],
+      "type": "string"
     },
     "RouterInputConfiguration": {
       "description": "The configuration settings for a router input.",
@@ -588,6 +652,21 @@
       "required": ["RoleArn", "SecretArn"],
       "type": "object"
     },
+    "SilentAudioConfiguration": {
+      "additionalProperties": false,
+      "description": "Detects silent audio in the router input's source content and reports it through a CloudWatch metric, an EventBridge event, and a router input message.",
+      "properties": {
+        "State": { "$ref": "#/definitions/ContentQualityAnalysisState" },
+        "ThresholdSeconds": {
+          "description": "The number of consecutive seconds of silence that MediaConnect must detect before it reports an issue.",
+          "maximum": 60,
+          "minimum": 10,
+          "type": "integer"
+        }
+      },
+      "required": ["State", "ThresholdSeconds"],
+      "type": "object"
+    },
     "SrtCallerRouterInputConfiguration": {
       "additionalProperties": false,
       "description": "The configuration settings for a router input using the SRT (Secure Reliable Transport) protocol in caller mode, including the source address and port, minimum latency, stream ID, and decryption key configuration.",
@@ -678,8 +757,7 @@
       },
       "required": ["Key", "Value"],
       "type": "object"
-    },
-    "Unit": { "additionalProperties": false, "type": "object" }
+    }
   },
   "description": "Represents a router input in AWS Elemental MediaConnect that is used to ingest content to be transmitted to router outputs",
   "handlers": {
@@ -688,6 +766,7 @@
         "mediaconnect:GetRouterInput",
         "mediaconnect:ListRouterInputs",
         "ec2:CreateNetworkInterface",
+        "ec2:CreateTags",
         "iam:PassRole",
         "mediaconnect:AssociateRouterNetworkInterface",
         "mediaconnect:CreateRouterInput",
@@ -715,6 +794,7 @@
         "mediaconnect:UntagResource",
         "mediaconnect:GetRouterInput",
         "ec2:CreateNetworkInterface",
+        "ec2:CreateTags",
         "iam:PassRole",
         "mediaconnect:AssociateRouterNetworkInterface",
         "mediaconnect:UpdateFlowOutput",
@@ -734,6 +814,12 @@
       "type": "string"
     },
     "Configuration": { "$ref": "#/definitions/RouterInputConfiguration" },
+    "ContentQualityAnalysisConfiguration": {
+      "$ref": "#/definitions/RouterContentQualityAnalysisConfiguration"
+    },
+    "ContentQualityAnalysisType": {
+      "$ref": "#/definitions/RouterContentQualityAnalysisType"
+    },
     "CreatedAt": {
       "description": "The timestamp when the router input was created.",
       "format": "date-time",
@@ -793,6 +879,7 @@
   },
   "readOnlyProperties": [
     "/properties/Arn",
+    "/properties/ContentQualityAnalysisType",
     "/properties/CreatedAt",
     "/properties/Id",
     "/properties/InputType",
