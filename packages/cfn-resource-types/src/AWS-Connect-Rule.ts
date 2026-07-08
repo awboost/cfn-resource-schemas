@@ -62,6 +62,12 @@ export type Actions = {
    */
   AssignContactCategoryActions?: AssignContactCategoryAction[];
   /**
+   * This action will assign an SLA when a rule is triggered.
+   * @minLength `1`
+   * @maxLength `1`
+   */
+  AssignSlaActions?: AssignSlaAction[];
+  /**
    * This action will create a case when a rule is triggered.
    * @minLength `1`
    * @maxLength `1`
@@ -110,6 +116,48 @@ export type Actions = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-assigncontactcategoryaction.html}
  */
 export type AssignContactCategoryAction = Record<string, any>;
+/**
+ * Type definition for `AWS::Connect::Rule.AssignSlaAction`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-assignslaaction.html}
+ */
+export type AssignSlaAction = {
+  /**
+   * The SLA configuration for cases.
+   */
+  CaseSlaConfiguration: {
+    /**
+     * The field Id for the SLA.
+     * @minLength `1`
+     * @maxLength `500`
+     */
+    FieldId?: string;
+    /**
+     * The name of the SLA.
+     * @minLength `1`
+     * @maxLength `500`
+     */
+    Name: string;
+    /**
+     * The target field values for the SLA.
+     * @maxLength `1`
+     */
+    TargetFieldValues?: SlaTargetFieldValue[];
+    /**
+     * The target SLA time in minutes.
+     * @min `1`
+     * @max `1051200`
+     */
+    TargetSlaMinutes: number;
+    /**
+     * The type of SLA.
+     */
+    Type: "CaseField";
+  };
+  /**
+   * The type of SLA assignment.
+   */
+  SlaAssignmentType: "CASES";
+};
 /**
  * Type definition for `AWS::Connect::Rule.CreateCaseAction`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-createcaseaction.html}
@@ -215,6 +263,7 @@ export type RuleTriggerEventSource = {
    * The name of the event source.
    */
   EventSourceName:
+    | "OnEmailAnalysisAvailable"
     | "OnContactEvaluationSubmit"
     | "OnPostCallAnalysisAvailable"
     | "OnRealTimeCallAnalysisAvailable"
@@ -225,7 +274,11 @@ export type RuleTriggerEventSource = {
     | "OnSalesforceCaseCreate"
     | "OnMetricDataUpdate"
     | "OnCaseCreate"
-    | "OnCaseUpdate";
+    | "OnCaseUpdate"
+    | "OnSlaBreach"
+    | "OnSchedulePublish"
+    | "OnScheduleUpdate"
+    | "OnScheduleTimeOffRequestActivity";
   /**
    * The Amazon Resource Name (ARN) of the integration association. ``IntegrationAssociationArn`` is required if ``TriggerEventSource`` is one of the following values: ``OnZendeskTicketCreate`` | ``OnZendeskTicketStatusUpdate`` | ``OnSalesforceCaseCreate``
    * @pattern `^$|arn:aws[-a-z0-9]*:connect:[-a-z0-9]*:[0-9]{12}:instance/[-a-zA-Z0-9]/‍*integration-association/[-a-zA-Z0-9]*$`
@@ -255,6 +308,10 @@ export type SendNotificationAction = {
    */
   DeliveryMethod: "EMAIL";
   /**
+   * The type of notification recipient.
+   */
+  Exclusion?: NotificationRecipientType;
+  /**
    * Notification recipient.
    */
   Recipient: NotificationRecipientType;
@@ -264,6 +321,13 @@ export type SendNotificationAction = {
    * @maxLength `200`
    */
   Subject?: string;
+};
+/**
+ * Type definition for `AWS::Connect::Rule.SlaTargetFieldValue`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-slatargetfieldvalue.html}
+ */
+export type SlaTargetFieldValue = {
+  StringValue?: string;
 };
 /**
  * Type definition for `AWS::Connect::Rule.SubmitAutoEvaluationAction`.

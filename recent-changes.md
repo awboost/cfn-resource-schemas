@@ -1,55 +1,48 @@
-- updated `AWS::AccessAnalyzer::Analyzer`
-  - updated property `Arn`
-- updated `AWS::MediaConnect::RouterInput`
-  - added definition `BlackFramesConfiguration`
-  - added definition `ContentQualityAnalysisFeatureConfiguration`
-  - added definition `ContentQualityAnalysisState`
-  - added definition `FrozenFramesConfiguration`
-  - added definition `RouterContentQualityAnalysisConfiguration`
-  - added definition `RouterContentQualityAnalysisType`
-  - added definition `SilentAudioConfiguration`
-  - added property `ContentQualityAnalysisConfiguration`
-  - added property `ContentQualityAnalysisType`
-  - removed definition `Unit`
-  - updated `readOnlyProperties`
-  - updated handler permissions
-- updated `AWS::MediaConnect::RouterOutput`
-  - updated handler permissions
-- updated `AWS::ServiceCatalog::AcceptedPortfolioShare`
-  - added `tagging`
+- added `AWS::Config::Connector`
+- updated `AWS::Connect::Rule`
+  - added definition `AssignSlaAction`
+  - added definition `AssignSlaActions`
+  - added definition `SlaTargetFieldValue`
+  - updated definition `Actions`
+  - updated definition `RuleTriggerEventSource`
+  - updated definition `SendNotificationAction`
+- updated `AWS::ECS::Daemon`
+  - updated `tagging`
+- updated `AWS::ECS::DaemonTaskDefinition`
+  - updated `tagging`
+- updated `AWS::EMRContainers::Endpoint`
   - added `writeOnlyProperties`
-  - removed `readOnlyProperties`
-  - removed property `Id`
+  - added property `AuthProxyUrl`
+  - added property `SessionIdleTimeoutInMinutes`
   - updated `createOnlyProperties`
-  - updated `primaryIdentifier`
-  - updated handler permissions
-  - updated property `AcceptLanguage`
-  - updated property `PortfolioId`
-- updated `AWS::ServiceCatalog::CloudFormationProduct`
-  - added `sourceUrl`
-  - added `tagging`
-  - added `writeOnlyProperties`
   - updated `readOnlyProperties`
-  - updated definition `CodeStarParameters`
-  - updated definition `ConnectionParameters`
-  - updated definition `ProvisioningArtifactProperties`
-  - updated definition `SourceConnection`
-  - updated definition `Tag`
   - updated handler permissions
-  - updated property `AcceptLanguage`
-  - updated property `Description`
-  - updated property `Distributor`
-  - updated property `Id`
-  - updated property `Name`
-  - updated property `Owner`
-  - updated property `ProductName`
-  - updated property `ProductType`
-  - updated property `ProvisioningArtifactIds`
-  - updated property `ProvisioningArtifactNames`
-  - updated property `ProvisioningArtifactParameters`
-  - updated property `ReplaceProvisioningArtifacts`
-  - updated property `SourceConnection`
-  - updated property `SupportDescription`
-  - updated property `SupportEmail`
-  - updated property `SupportUrl`
-  - updated property `Tags`
+- updated `AWS::EMRContainers::VirtualCluster`
+  - added property `SessionEnabled`
+  - updated `createOnlyProperties`
+- updated `AWS::ImageBuilder::ImageRecipe`
+  - added property `AmiWatermarks`
+  - updated `createOnlyProperties`
+- updated `AWS::MediaLive::ChannelPlacementGroup`
+  - updated `tagging`
+- updated `AWS::MediaLive::CloudWatchAlarmTemplate`
+  - updated `tagging`
+- updated `AWS::MediaLive::CloudWatchAlarmTemplateGroup`
+  - updated `tagging`
+- updated `AWS::MediaLive::Cluster`
+  - updated `tagging`
+- updated `AWS::MediaLive::EventBridgeRuleTemplate`
+  - updated `tagging`
+- updated `AWS::MediaLive::EventBridgeRuleTemplateGroup`
+  - updated `tagging`
+- updated `AWS::MediaLive::Multiplex`
+  - updated `tagging`
+- updated `AWS::MediaLive::Network`
+  - updated `tagging`
+- updated `AWS::MediaLive::SdiSource`
+  - updated `tagging`
+- updated `AWS::MediaLive::SignalMap`
+  - updated `tagging`
+- updated `AWS::SSM::Parameter`
+  - added `readOnlyProperties`
+  - added property `Arn`

@@ -1,5 +1,5 @@
 {
-  "$hash": "2c8bbd617f3ae4a08c10b89afc8bf490d799fff7",
+  "$hash": "6b5cd35d025f59df2b29e75e8070544ace1b99e4",
   "$id": "aws-medialive-signalmap.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Tags"],
@@ -333,7 +333,7 @@
   ],
   "required": ["DiscoveryEntryPointArn", "Name"],
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": ["medialive:CreateTags", "medialive:DeleteTags"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",

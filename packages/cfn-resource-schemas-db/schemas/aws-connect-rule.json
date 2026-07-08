@@ -1,5 +1,5 @@
 {
-  "$hash": "3c293c7fcc884d59def0a292e393fae4b88f7082",
+  "$hash": "3a3bf66119a4fcd3ffa140324db4b9af006d694e",
   "$id": "aws-connect-rule.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -14,6 +14,10 @@
         "AssignContactCategoryActions": {
           "$ref": "#/definitions/AssignContactCategoryActions",
           "description": "Information about the contact category action. The syntax can be empty, for example, ``{}``."
+        },
+        "AssignSlaActions": {
+          "$ref": "#/definitions/AssignSlaActions",
+          "description": ""
         },
         "CreateCaseActions": {
           "$ref": "#/definitions/CreateCaseActions",
@@ -54,6 +58,65 @@
       "description": "This action will assign contact category when a rule is triggered.",
       "insertionOrder": false,
       "items": { "$ref": "#/definitions/AssignContactCategoryAction" },
+      "maxItems": 1,
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "AssignSlaAction": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "CaseSlaConfiguration": {
+          "additionalProperties": false,
+          "description": "The SLA configuration for cases.",
+          "properties": {
+            "FieldId": {
+              "description": "The field Id for the SLA.",
+              "maxLength": 500,
+              "minLength": 1,
+              "type": "string"
+            },
+            "Name": {
+              "description": "The name of the SLA.",
+              "maxLength": 500,
+              "minLength": 1,
+              "type": "string"
+            },
+            "TargetFieldValues": {
+              "description": "The target field values for the SLA.",
+              "items": { "$ref": "#/definitions/SlaTargetFieldValue" },
+              "maxItems": 1,
+              "type": "array"
+            },
+            "TargetSlaMinutes": {
+              "description": "The target SLA time in minutes.",
+              "maximum": 1051200,
+              "minimum": 1,
+              "type": "number"
+            },
+            "Type": {
+              "description": "The type of SLA.",
+              "enum": ["CaseField"],
+              "type": "string"
+            }
+          },
+          "required": ["Type", "Name", "TargetSlaMinutes"],
+          "type": "object"
+        },
+        "SlaAssignmentType": {
+          "description": "The type of SLA assignment.",
+          "enum": ["CASES"],
+          "type": "string"
+        }
+      },
+      "required": ["SlaAssignmentType", "CaseSlaConfiguration"],
+      "type": "object"
+    },
+    "AssignSlaActions": {
+      "description": "This action will assign an SLA when a rule is triggered.",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/AssignSlaAction" },
       "maxItems": 1,
       "minItems": 1,
       "type": "array",
@@ -199,6 +262,7 @@
         "EventSourceName": {
           "description": "The name of the event source.",
           "enum": [
+            "OnEmailAnalysisAvailable",
             "OnContactEvaluationSubmit",
             "OnPostCallAnalysisAvailable",
             "OnRealTimeCallAnalysisAvailable",
@@ -209,7 +273,11 @@
             "OnSalesforceCaseCreate",
             "OnMetricDataUpdate",
             "OnCaseCreate",
-            "OnCaseUpdate"
+            "OnCaseUpdate",
+            "OnSlaBreach",
+            "OnSchedulePublish",
+            "OnScheduleUpdate",
+            "OnScheduleTimeOffRequestActivity"
           ],
           "type": "string"
         },
@@ -242,6 +310,10 @@
           "enum": ["EMAIL"],
           "type": "string"
         },
+        "Exclusion": {
+          "$ref": "#/definitions/NotificationRecipientType",
+          "description": ""
+        },
         "Recipient": {
           "$ref": "#/definitions/NotificationRecipientType",
           "description": "Notification recipient."
@@ -264,6 +336,12 @@
       "minItems": 1,
       "type": "array",
       "uniqueItems": true
+    },
+    "SlaTargetFieldValue": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": { "StringValue": { "type": "string" } },
+      "type": "object"
     },
     "SubmitAutoEvaluationAction": {
       "additionalProperties": false,

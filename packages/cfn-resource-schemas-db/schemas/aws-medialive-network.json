@@ -1,5 +1,5 @@
 {
-  "$hash": "00bbd01a22a482bb2d50dedc260b480678050b05",
+  "$hash": "a0c344326fe0e29ba2c2d2312f38d3667e48ca24",
   "$id": "aws-medialive-network.json",
   "additionalProperties": false,
   "definitions": {
@@ -123,7 +123,7 @@
   ],
   "required": ["Name", "IpPools"],
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": ["medialive:CreateTags", "medialive:DeleteTags"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",

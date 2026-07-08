@@ -1,5 +1,5 @@
 {
-  "$hash": "b5c3263193128b1d1350b8eed25948fba9e5cc41",
+  "$hash": "285749eebb9ce0f7d6e918d99618d9b0ae857a3c",
   "$id": "aws-emrcontainers-endpoint.json",
   "additionalIdentifiers": [["/properties/VirtualClusterId", "/properties/Id"]],
   "additionalProperties": false,
@@ -9,7 +9,8 @@
     "/properties/Type",
     "/properties/ReleaseLabel",
     "/properties/ExecutionRoleArn",
-    "/properties/ConfigurationOverrides"
+    "/properties/ConfigurationOverrides",
+    "/properties/SessionIdleTimeoutInMinutes"
   ],
   "definitions": {
     "Certificate": {
@@ -122,6 +123,7 @@
         "emr-containers:CreateManagedEndpoint",
         "emr-containers:DescribeManagedEndpoint",
         "emr-containers:TagResource",
+        "iam:PassRole",
         "ec2:CreateSecurityGroup",
         "ec2:DeleteSecurityGroup",
         "ec2:AuthorizeSecurityGroupEgress",
@@ -164,6 +166,10 @@
   "properties": {
     "Arn": {
       "description": "The ARN of the managed endpoint.",
+      "type": "string"
+    },
+    "AuthProxyUrl": {
+      "description": "The auth proxy URL for Spark Connect connections.",
       "type": "string"
     },
     "CertificateAuthority": {
@@ -212,6 +218,12 @@
       "description": "The server URL of the managed endpoint.",
       "type": "string"
     },
+    "SessionIdleTimeoutInMinutes": {
+      "description": "The idle timeout in minutes for sessions on the managed endpoint.",
+      "maximum": 1440,
+      "minimum": 1,
+      "type": "integer"
+    },
     "State": {
       "description": "The state of the managed endpoint.",
       "type": "string"
@@ -246,7 +258,8 @@
     "/properties/FailureReason",
     "/properties/CreatedAt",
     "/properties/SecurityGroup",
-    "/properties/CertificateAuthority"
+    "/properties/CertificateAuthority",
+    "/properties/AuthProxyUrl"
   ],
   "required": ["VirtualClusterId", "Type", "ReleaseLabel", "ExecutionRoleArn"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
@@ -262,5 +275,6 @@
     "tagUpdatable": true,
     "taggable": true
   },
-  "typeName": "AWS::EMRContainers::Endpoint"
+  "typeName": "AWS::EMRContainers::Endpoint",
+  "writeOnlyProperties": ["/properties/SessionIdleTimeoutInMinutes"]
 }

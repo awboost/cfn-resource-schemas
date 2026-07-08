@@ -1,5 +1,5 @@
 {
-  "$hash": "ea8b7009944ab1577a5f35ff6d800eaff22ea5ac",
+  "$hash": "c3747c5a657de71204f74fda286e63dd88eca189",
   "$id": "aws-medialive-cloudwatchalarmtemplategroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/Tags"],
@@ -75,7 +75,7 @@
   ],
   "required": ["Name"],
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": ["medialive:CreateTags", "medialive:DeleteTags"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",

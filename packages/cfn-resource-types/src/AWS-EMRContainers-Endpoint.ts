@@ -28,6 +28,12 @@ export type EMRContainersEndpointProperties = {
    */
   ReleaseLabel: string;
   /**
+   * The idle timeout in minutes for sessions on the managed endpoint.
+   * @min `1`
+   * @max `1440`
+   */
+  SessionIdleTimeoutInMinutes?: number;
+  /**
    * An array of key-value pairs to apply to this managed endpoint.
    * @maxLength `50`
    */
@@ -50,6 +56,10 @@ export type EMRContainersEndpointAttributes = {
    * The ARN of the managed endpoint.
    */
   Arn: string;
+  /**
+   * The auth proxy URL for Spark Connect connections.
+   */
+  AuthProxyUrl: string;
   /**
    * The certificate authority for the managed endpoint.
    */

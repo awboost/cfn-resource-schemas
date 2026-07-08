@@ -1,5 +1,5 @@
 {
-  "$hash": "45101e18d627a37f0b604b24a787684dccab9de3",
+  "$hash": "15d59d7998b96de5d868d13edb8a5f92ad1e91b0",
   "$id": "aws-medialive-sdisource.json",
   "additionalProperties": false,
   "definitions": {
@@ -96,7 +96,7 @@
   ],
   "required": ["Name", "Type"],
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": ["medialive:CreateTags", "medialive:DeleteTags"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",

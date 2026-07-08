@@ -1,5 +1,5 @@
 {
-  "$hash": "fbc35eed737d9f180543a588f3a2f60a9cf605b7",
+  "$hash": "0b2220648fb4044bc02592ad03aae3dc500b023c",
   "$id": "aws-imagebuilder-imagerecipe.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -11,7 +11,8 @@
     "/properties/BlockDeviceMappings",
     "/properties/WorkingDirectory",
     "/properties/AdditionalInstanceConfiguration",
-    "/properties/AmiTags"
+    "/properties/AmiTags",
+    "/properties/AmiWatermarks"
   ],
   "definitions": {
     "AdditionalInstanceConfiguration": {
@@ -200,6 +201,19 @@
       "description": "The tags to apply to the AMI created by this image recipe.",
       "patternProperties": { ".{1,}": { "type": "string" } },
       "type": "object"
+    },
+    "AmiWatermarks": {
+      "description": "The AMI watermark names to attach to the output AMI from this recipe. AMI watermarks are lineage markers that automatically propagate to derivative AMIs when the source AMI is copied or distributed.",
+      "insertionOrder": false,
+      "items": {
+        "maxLength": 128,
+        "minLength": 3,
+        "pattern": "^[A-Za-z0-9()\\[\\]./'@_\\-][A-Za-z0-9 ()\\[\\]./'@_\\-]{1,126}[A-Za-z0-9()\\[\\]./'@_\\-]$",
+        "type": "string"
+      },
+      "maxItems": 5,
+      "minItems": 1,
+      "type": "array"
     },
     "Arn": {
       "description": "The Amazon Resource Name (ARN) of the image recipe.",

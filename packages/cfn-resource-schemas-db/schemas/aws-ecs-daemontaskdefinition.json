@@ -1,5 +1,5 @@
 {
-  "$hash": "1bf8659c47be3deeb40bcc42101a182ab4333b54",
+  "$hash": "c24a6652265a1bcf9ccda0a2720bde141d6c3914",
   "$id": "aws-ecs-daemontaskdefinition.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -592,7 +592,7 @@
   },
   "readOnlyProperties": ["/properties/DaemonTaskDefinitionArn"],
   "tagging": {
-    "cloudFormationSystemTags": true,
+    "cloudFormationSystemTags": false,
     "permissions": [
       "ecs:TagResource",
       "ecs:UntagResource",

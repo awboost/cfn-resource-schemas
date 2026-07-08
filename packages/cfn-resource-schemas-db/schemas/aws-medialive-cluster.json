@@ -1,5 +1,5 @@
 {
-  "$hash": "4bd1b4df712e063375bf4dfd6a124aef838c0b37",
+  "$hash": "67ebf7e3acb861f5e1a925a5774531d14d6bc14b",
   "$id": "aws-medialive-cluster.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -154,7 +154,7 @@
     "/properties/State"
   ],
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": ["medialive:CreateTags", "medialive:DeleteTags"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",

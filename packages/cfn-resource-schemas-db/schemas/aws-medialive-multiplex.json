@@ -1,5 +1,5 @@
 {
-  "$hash": "2a790adb1c7d075b4a814b48c0c7667a1f06da91",
+  "$hash": "4aa5f8af3f4c5c385dc74fbea1042492e76620dc",
   "$id": "aws-medialive-multiplex.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AvailabilityZones"],
@@ -156,7 +156,7 @@
   "required": ["AvailabilityZones", "MultiplexSettings", "Name"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-medialive.git",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": ["medialive:CreateTags", "medialive:DeleteTags"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",

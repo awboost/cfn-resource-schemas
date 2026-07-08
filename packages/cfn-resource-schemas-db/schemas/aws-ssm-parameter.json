@@ -1,5 +1,5 @@
 {
-  "$hash": "bad8cf470b86418919b90aef6bba4e479c7701cf",
+  "$hash": "2c3bd1e3ea5112d33db66f10548f311271de500e",
   "$id": "aws-ssm-parameter.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -30,6 +30,11 @@
   "properties": {
     "AllowedPattern": {
       "description": "A regular expression used to validate the parameter value. For example, for ``String`` types with values restricted to numbers, you can specify the following: ``AllowedPattern=^\\d+$``",
+      "type": "string"
+    },
+    "Arn": {
+      "description": "",
+      "pattern": "arn:aws(-[a-z0-9-]+)*:ssm:[a-z0-9-]+:[0-9]{12}:parameter/.+",
       "type": "string"
     },
     "DataType": {
@@ -72,6 +77,7 @@
       "type": "string"
     }
   },
+  "readOnlyProperties": ["/properties/Arn"],
   "required": ["Value", "Type"],
   "tagging": {
     "cloudFormationSystemTags": true,

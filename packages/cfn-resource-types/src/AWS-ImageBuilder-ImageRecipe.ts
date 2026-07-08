@@ -14,6 +14,12 @@ export type ImageBuilderImageRecipeProperties = {
    */
   AmiTags?: Record<string, string>;
   /**
+   * The AMI watermark names to attach to the output AMI from this recipe. AMI watermarks are lineage markers that automatically propagate to derivative AMIs when the source AMI is copied or distributed.
+   * @minLength `1`
+   * @maxLength `5`
+   */
+  AmiWatermarks?: string[];
+  /**
    * The block device mappings to apply when creating images from this recipe.
    */
   BlockDeviceMappings?: InstanceBlockDeviceMapping[];

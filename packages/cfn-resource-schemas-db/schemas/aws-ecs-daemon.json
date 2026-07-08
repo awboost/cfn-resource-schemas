@@ -1,5 +1,5 @@
 {
-  "$hash": "84ca6bf31afa8033c44411bfa421cbeea83aabad",
+  "$hash": "cfcc119e1aee351df817f76fa3dd78cf817fe77a",
   "$id": "aws-ecs-daemon.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DaemonName", "/properties/ClusterArn"],
@@ -155,7 +155,7 @@
   ],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
-    "cloudFormationSystemTags": true,
+    "cloudFormationSystemTags": false,
     "permissions": [
       "ecs:TagResource",
       "ecs:UntagResource",
