@@ -1,5 +1,5 @@
 {
-  "$hash": "f49218e8c3404204e90d49c98960886e1a865be6",
+  "$hash": "8d850a9da84b0d67db15da49213225cbd740bec7",
   "$id": "aws-cassandra-table.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -369,7 +369,7 @@
   },
   "required": ["KeyspaceName", "PartitionKeyColumns"],
   "tagging": {
-    "cloudFormationSystemTags": true,
+    "cloudFormationSystemTags": false,
     "permissions": [
       "cassandra:TagResource",
       "cassandra:TagMultiRegionResource",

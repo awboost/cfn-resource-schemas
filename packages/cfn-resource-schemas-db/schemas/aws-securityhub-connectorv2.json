@@ -1,17 +1,84 @@
 {
-  "$hash": "f3e9e14a69229a7271163af2b0cc9dfcbdfcb54c",
+  "$hash": "3b438da1c069ee39d6ec5ee969b067bd7c2a6ec4",
   "$id": "aws-securityhub-connectorv2.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/Name",
     "/properties/KmsKeyArn",
-    "/properties/Provider/ServiceNow/InstanceName"
+    "/properties/Provider/ServiceNow/InstanceName",
+    "/properties/Provider/Azure/AWSConfigConnectorArn"
   ],
   "definitions": {
     "AuthStatus": {
       "description": "The authorization status of the connector",
       "enum": ["ACTIVE", "FAILED"],
       "type": "string"
+    },
+    "AzureProviderConfiguration": {
+      "additionalProperties": false,
+      "description": "The configuration settings required to establish an integration between AWS Security Hub and Azure",
+      "properties": {
+        "AWSConfigConnectorArn": {
+          "description": "The ARN of the AWS Config connector used for the Azure integration",
+          "type": "string"
+        },
+        "AzureRegions": {
+          "description": "The list of Azure regions to include in the connector scope",
+          "insertionOrder": false,
+          "items": { "type": "string" },
+          "maxItems": 100,
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "ScopeConfiguration": {
+          "$ref": "#/definitions/AzureScopeConfiguration"
+        }
+      },
+      "required": [
+        "AWSConfigConnectorArn",
+        "ScopeConfiguration",
+        "AzureRegions"
+      ],
+      "type": "object"
+    },
+    "AzureScopeConfiguration": {
+      "additionalProperties": false,
+      "description": "The scope configuration for an Azure connector",
+      "properties": {
+        "ScopeType": {
+          "description": "The scope type for the Azure connector",
+          "enum": ["TENANT", "SUBSCRIPTION"],
+          "type": "string"
+        },
+        "ScopeValues": {
+          "description": "The list of scope values for the Azure connector",
+          "insertionOrder": false,
+          "items": { "type": "string" },
+          "maxItems": 100,
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "required": ["ScopeType"],
+      "type": "object"
+    },
+    "HealthIssue": {
+      "additionalProperties": false,
+      "description": "A health issue associated with the connector",
+      "properties": {
+        "Code": {
+          "description": "The code identifying the type of health issue",
+          "type": "string"
+        },
+        "Message": {
+          "description": "The message describing the health issue",
+          "type": "string"
+        }
+      },
+      "required": ["Code", "Message"],
+      "type": "object"
     },
     "ISO8601DateString": {
       "description": "The timestamp formatted in ISO8601",
@@ -53,6 +120,14 @@
             }
           },
           "required": ["ServiceNow"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "Azure": { "$ref": "#/definitions/AzureProviderConfiguration" }
+          },
+          "required": ["Azure"],
           "type": "object"
         }
       ],
@@ -99,6 +174,7 @@
       "permissions": [
         "securityhub:CreateConnectorV2",
         "securityhub:GetConnectorV2",
+        "securityhub:ListConnectorsV2",
         "securityhub:TagResource",
         "securityhub:ListTagsForResource",
         "kms:DescribeKey",
@@ -109,7 +185,8 @@
     "delete": {
       "permissions": [
         "securityhub:GetConnectorV2",
-        "securityhub:DeleteConnectorV2"
+        "securityhub:DeleteConnectorV2",
+        "securityhub:ListConnectorsV2"
       ]
     },
     "list": {
@@ -128,6 +205,7 @@
       "permissions": [
         "securityhub:UpdateConnectorV2",
         "securityhub:GetConnectorV2",
+        "securityhub:ListConnectorsV2",
         "securityhub:TagResource",
         "securityhub:UntagResource",
         "securityhub:ListTagsForResource"
@@ -148,12 +226,6 @@
     },
     "ConnectorStatus": {
       "description": "The status of the connector",
-      "enum": [
-        "CONNECTED",
-        "FAILED_TO_CONNECT",
-        "PENDING_AUTHORIZATION",
-        "PENDING_CONFIGURATION"
-      ],
       "type": "string"
     },
     "CreatedAt": { "$ref": "#/definitions/ISO8601DateString" },
@@ -163,6 +235,20 @@
       "minLength": 0,
       "pattern": ".*\\S.*",
       "type": "string"
+    },
+    "EnablementStatus": {
+      "description": "The enablement status of the connector",
+      "type": "string"
+    },
+    "EnablementStatusReason": {
+      "description": "The reason for the enablement status of the connector",
+      "type": "string"
+    },
+    "Issues": {
+      "description": "The list of health issues associated with the connector",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/HealthIssue" },
+      "type": "array"
     },
     "KmsKeyArn": {
       "description": "The ARN of KMS key used for the connector",
@@ -194,7 +280,10 @@
     "/properties/ConnectorStatus",
     "/properties/LastUpdatedAt",
     "/properties/LastCheckedAt",
-    "/properties/CreatedAt"
+    "/properties/CreatedAt",
+    "/properties/EnablementStatus",
+    "/properties/EnablementStatusReason",
+    "/properties/Issues"
   ],
   "required": ["Name", "Provider"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-securityhub",

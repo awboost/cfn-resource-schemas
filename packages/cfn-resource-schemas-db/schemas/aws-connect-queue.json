@@ -1,5 +1,5 @@
 {
-  "$hash": "b3ef1308e4686d18c9ea1857a6fc7bd7d8f51284",
+  "$hash": "d60f52f24c483b971c4514a2119ff2b4045f3102",
   "$id": "aws-connect-queue.json",
   "additionalProperties": false,
   "definitions": {
@@ -224,7 +224,7 @@
   "required": ["InstanceArn", "HoursOfOperationArn", "Name"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-connect",
   "tagging": {
-    "cloudFormationSystemTags": true,
+    "cloudFormationSystemTags": false,
     "permissions": ["connect:TagResource", "connect:UntagResource"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",

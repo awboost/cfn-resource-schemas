@@ -98,6 +98,10 @@ export type ConnectUserAttributes = {
  */
 export type AfterContactWorkConfig = {
   /**
+   * The after contact work (ACW) mode for the channel.
+   */
+  AfterContactWorkMode?: AfterContactWorkMode;
+  /**
    * The After Call Work (ACW) timeout setting, in seconds.
    * @min `0`
    */
@@ -122,6 +126,12 @@ export type AfterContactWorkConfigPerChannel = {
    */
   Channel: Channel;
 };
+/**
+ * Type definition for `AWS::Connect::User.AfterContactWorkMode`.
+ * The after contact work (ACW) mode for the channel.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-aftercontactworkmode.html}
+ */
+export type AfterContactWorkMode = "ON" | "OFF" | "ON_DEMAND";
 /**
  * Type definition for `AWS::Connect::User.AutoAcceptConfig`.
  * Auto-accept configuration per channel.

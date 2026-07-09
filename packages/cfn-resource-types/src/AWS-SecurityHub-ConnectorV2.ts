@@ -53,16 +53,33 @@ export type SecurityHubConnectorV2Attributes = {
   /**
    * The status of the connector
    */
-  ConnectorStatus:
-    | "CONNECTED"
-    | "FAILED_TO_CONNECT"
-    | "PENDING_AUTHORIZATION"
-    | "PENDING_CONFIGURATION";
+  ConnectorStatus: string;
   /**
    * The timestamp formatted in ISO8601
    * @pattern `^(\d\d\d\d)-([0][1-9]|[1][0-2])-([0][1-9]|[1-2](\d)|[3][0-1])[T](?:([0-1](\d)|[2][0-3]):[0-5](\d):[0-5](\d)|23:59:60)(?:\.(\d)+)?([Z]|[+-](\d\d)(:?(\d\d))?)$`
    */
   CreatedAt: string;
+  /**
+   * The enablement status of the connector
+   */
+  EnablementStatus: string;
+  /**
+   * The reason for the enablement status of the connector
+   */
+  EnablementStatusReason: string;
+  /**
+   * The list of health issues associated with the connector
+   */
+  Issues: {
+    /**
+     * The code identifying the type of health issue
+     */
+    Code: string;
+    /**
+     * The message describing the health issue
+     */
+    Message: string;
+  }[];
   /**
    * The timestamp formatted in ISO8601
    * @pattern `^(\d\d\d\d)-([0][1-9]|[1][0-2])-([0][1-9]|[1-2](\d)|[3][0-1])[T](?:([0-1](\d)|[2][0-3]):[0-5](\d):[0-5](\d)|23:59:60)(?:\.(\d)+)?([Z]|[+-](\d\d)(:?(\d\d))?)$`
@@ -75,6 +92,59 @@ export type SecurityHubConnectorV2Attributes = {
   LastUpdatedAt: string;
   /**
    * The message of the connector status change
+   */
+  Message: string;
+};
+/**
+ * Type definition for `AWS::SecurityHub::ConnectorV2.AzureProviderConfiguration`.
+ * The configuration settings required to establish an integration between AWS Security Hub and Azure
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-connectorv2-azureproviderconfiguration.html}
+ */
+export type AzureProviderConfiguration = {
+  /**
+   * The ARN of the AWS Config connector used for the Azure integration
+   */
+  AWSConfigConnectorArn: string;
+  /**
+   * The list of Azure regions to include in the connector scope
+   * @minLength `1`
+   * @maxLength `100`
+   */
+  AzureRegions: string[];
+  /**
+   * The scope configuration for an Azure connector
+   */
+  ScopeConfiguration: AzureScopeConfiguration;
+};
+/**
+ * Type definition for `AWS::SecurityHub::ConnectorV2.AzureScopeConfiguration`.
+ * The scope configuration for an Azure connector
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-connectorv2-azurescopeconfiguration.html}
+ */
+export type AzureScopeConfiguration = {
+  /**
+   * The scope type for the Azure connector
+   */
+  ScopeType: "TENANT" | "SUBSCRIPTION";
+  /**
+   * The list of scope values for the Azure connector
+   * @minLength `0`
+   * @maxLength `100`
+   */
+  ScopeValues?: string[];
+};
+/**
+ * Type definition for `AWS::SecurityHub::ConnectorV2.HealthIssue`.
+ * A health issue associated with the connector
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-connectorv2-healthissue.html}
+ */
+export type HealthIssue = {
+  /**
+   * The code identifying the type of health issue
+   */
+  Code: string;
+  /**
+   * The message describing the health issue
    */
   Message: string;
 };
@@ -108,6 +178,12 @@ export type Provider =
        * The initial configuration settings required to establish an integration between Security Hub and ServiceNow ITSM
        */
       ServiceNow: ServiceNowProviderConfiguration;
+    }
+  | {
+      /**
+       * The configuration settings required to establish an integration between AWS Security Hub and Azure
+       */
+      Azure: AzureProviderConfiguration;
     };
 /**
  * Type definition for `AWS::SecurityHub::ConnectorV2.ServiceNowProviderConfiguration`.

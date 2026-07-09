@@ -1,48 +1,36 @@
-- added `AWS::Config::Connector`
-- updated `AWS::Connect::Rule`
-  - added definition `AssignSlaAction`
-  - added definition `AssignSlaActions`
-  - added definition `SlaTargetFieldValue`
-  - updated definition `Actions`
-  - updated definition `RuleTriggerEventSource`
-  - updated definition `SendNotificationAction`
-- updated `AWS::ECS::Daemon`
-  - updated `tagging`
-- updated `AWS::ECS::DaemonTaskDefinition`
-  - updated `tagging`
-- updated `AWS::EMRContainers::Endpoint`
+- added `AWS::SecurityHub::Connector`
+- updated `AWS::Cassandra::Keyspace`
   - added `writeOnlyProperties`
-  - added property `AuthProxyUrl`
-  - added property `SessionIdleTimeoutInMinutes`
+  - updated `tagging`
+  - updated definition `RegionList`
+- updated `AWS::Cassandra::Table`
+  - updated `tagging`
+- updated `AWS::Connect::Queue`
+  - updated `tagging`
+- updated `AWS::Connect::User`
+  - added definition `AfterContactWorkMode`
+  - updated `tagging`
+  - updated definition `AfterContactWorkConfig`
+- updated `AWS::ElastiCache::ReplicationGroup`
+  - added `propertyTransform`
+- updated `AWS::SQS::Queue`
+  - updated definition `Tag`
+  - updated property `DeduplicationScope`
+  - updated property `FifoQueue`
+  - updated property `FifoThroughputLimit`
+  - updated property `KmsMasterKeyId`
+  - updated property `MaximumMessageSize`
+  - updated property `QueueName`
+  - updated property `RedrivePolicy`
+- updated `AWS::SecurityHub::ConnectorV2`
+  - added definition `AzureProviderConfiguration`
+  - added definition `AzureScopeConfiguration`
+  - added definition `HealthIssue`
+  - added property `EnablementStatusReason`
+  - added property `EnablementStatus`
+  - added property `Issues`
   - updated `createOnlyProperties`
   - updated `readOnlyProperties`
+  - updated definition `Provider`
   - updated handler permissions
-- updated `AWS::EMRContainers::VirtualCluster`
-  - added property `SessionEnabled`
-  - updated `createOnlyProperties`
-- updated `AWS::ImageBuilder::ImageRecipe`
-  - added property `AmiWatermarks`
-  - updated `createOnlyProperties`
-- updated `AWS::MediaLive::ChannelPlacementGroup`
-  - updated `tagging`
-- updated `AWS::MediaLive::CloudWatchAlarmTemplate`
-  - updated `tagging`
-- updated `AWS::MediaLive::CloudWatchAlarmTemplateGroup`
-  - updated `tagging`
-- updated `AWS::MediaLive::Cluster`
-  - updated `tagging`
-- updated `AWS::MediaLive::EventBridgeRuleTemplate`
-  - updated `tagging`
-- updated `AWS::MediaLive::EventBridgeRuleTemplateGroup`
-  - updated `tagging`
-- updated `AWS::MediaLive::Multiplex`
-  - updated `tagging`
-- updated `AWS::MediaLive::Network`
-  - updated `tagging`
-- updated `AWS::MediaLive::SdiSource`
-  - updated `tagging`
-- updated `AWS::MediaLive::SignalMap`
-  - updated `tagging`
-- updated `AWS::SSM::Parameter`
-  - added `readOnlyProperties`
-  - added property `Arn`
+  - updated property `ConnectorStatus`

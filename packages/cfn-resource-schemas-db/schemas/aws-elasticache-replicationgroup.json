@@ -1,5 +1,5 @@
 {
-  "$hash": "fca919d774bd792adcf323b69b753664d3a58709",
+  "$hash": "01e580a9fa68f2a36501ec30b32cecf0e4ff1c86",
   "$id": "aws-elasticache-replicationgroup.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -444,6 +444,9 @@
       "type": "array",
       "uniqueItems": true
     }
+  },
+  "propertyTransform": {
+    "/properties/ReplicationGroupId": "$lowercase(ReplicationGroupId)"
   },
   "readOnlyProperties": [
     "/properties/ConfigurationEndPoint",

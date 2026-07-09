@@ -1,5 +1,5 @@
 {
-  "$hash": "3b228354b77fff6c3be0fce9ed430b854c94dbe4",
+  "$hash": "d866aaaf79daef705b53b3c5e51af0606b1f86f1",
   "$id": "aws-connect-user.json",
   "additionalProperties": false,
   "definitions": {
@@ -7,6 +7,9 @@
       "additionalProperties": false,
       "description": "After Contact Work configuration.",
       "properties": {
+        "AfterContactWorkMode": {
+          "$ref": "#/definitions/AfterContactWorkMode"
+        },
         "AfterContactWorkTimeLimit": {
           "$ref": "#/definitions/AfterContactWorkTimeLimit"
         }
@@ -27,6 +30,11 @@
       },
       "required": ["Channel", "AfterContactWorkConfig"],
       "type": "object"
+    },
+    "AfterContactWorkMode": {
+      "description": "The after contact work (ACW) mode for the channel.",
+      "enum": ["ON", "OFF", "ON_DEMAND"],
+      "type": "string"
     },
     "AfterContactWorkTimeLimit": {
       "description": "The After Call Work (ACW) timeout setting, in seconds.",
@@ -364,7 +372,7 @@
   ],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-connect",
   "tagging": {
-    "cloudFormationSystemTags": true,
+    "cloudFormationSystemTags": false,
     "permissions": ["connect:TagResource", "connect:UntagResource"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
