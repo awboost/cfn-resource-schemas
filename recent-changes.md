@@ -1,36 +1,18 @@
-- added `AWS::SecurityHub::Connector`
-- updated `AWS::Cassandra::Keyspace`
-  - added `writeOnlyProperties`
-  - updated `tagging`
-  - updated definition `RegionList`
-- updated `AWS::Cassandra::Table`
-  - updated `tagging`
-- updated `AWS::Connect::Queue`
-  - updated `tagging`
-- updated `AWS::Connect::User`
-  - added definition `AfterContactWorkMode`
-  - updated `tagging`
-  - updated definition `AfterContactWorkConfig`
-- updated `AWS::ElastiCache::ReplicationGroup`
-  - added `propertyTransform`
-- updated `AWS::SQS::Queue`
-  - updated definition `Tag`
-  - updated property `DeduplicationScope`
-  - updated property `FifoQueue`
-  - updated property `FifoThroughputLimit`
-  - updated property `KmsMasterKeyId`
-  - updated property `MaximumMessageSize`
-  - updated property `QueueName`
-  - updated property `RedrivePolicy`
-- updated `AWS::SecurityHub::ConnectorV2`
-  - added definition `AzureProviderConfiguration`
-  - added definition `AzureScopeConfiguration`
-  - added definition `HealthIssue`
-  - added property `EnablementStatusReason`
-  - added property `EnablementStatus`
-  - added property `Issues`
-  - updated `createOnlyProperties`
-  - updated `readOnlyProperties`
-  - updated definition `Provider`
+- updated `AWS::AppConfig::Application`
+  - added `additionalIdentifiers`
+- updated `AWS::AppConfig::ConfigurationProfile`
+  - added `additionalIdentifiers`
+- updated `AWS::AppConfig::Environment`
+  - added `additionalIdentifiers`
+- updated `AWS::AppConfig::Extension`
   - updated handler permissions
-  - updated property `ConnectorStatus`
+- updated `AWS::DevOpsAgent::Service`
+  - updated definition `MCPServerSigV4AuthorizationConfig`
+  - updated definition `RegisteredMCPServerSigV4Details`
+  - updated handler permissions
+- updated `AWS::Pinpoint::InAppTemplate`
+  - updated `tagging`
+- updated `AWS::Shield::Protection`
+  - updated `tagging`
+- updated `AWS::Shield::ProtectionGroup`
+  - updated `tagging`

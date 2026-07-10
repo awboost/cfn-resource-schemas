@@ -1,5 +1,5 @@
 {
-  "$hash": "45dfb841829f47c3564942a09a4eae938a3a3481",
+  "$hash": "75672cef9a53833af9782843fa4fd42c75803428",
   "$id": "aws-pinpoint-inapptemplate.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/TemplateName"],
@@ -134,7 +134,7 @@
   "required": ["TemplateName"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "mobiletargeting:TagResource",
       "mobiletargeting:UntagResource"

@@ -356,15 +356,20 @@ export type MCPServerSigV4AuthorizationConfig = {
    */
   CustomHeaders?: Record<string, string>;
   /**
+   * IAM role ARN to assume for SigV4 signing. Optional - when omitted, credentials are resolved at runtime via a monitor account association.
+   * @pattern `^arn:aws:iam::\d{12}:role/[a-zA-Z0-9+=,.@_/-]+$`
+   */
+  McpRoleArn?: string;
+  /**
    * AWS region for SigV4 signing. Use '*' for SigV4a multi-region signing.
    * @pattern `^(\*|[a-z]{2,4}(-[a-z]+)+-\d+)$`
    */
   Region: string;
   /**
-   * IAM role ARN to assume for SigV4 signing
+   * Deprecated - use McpRoleArn instead. IAM role ARN to assume for SigV4 signing
    * @pattern `^arn:aws:iam::\d{12}:role/[a-zA-Z0-9+=,.@_/-]+$`
    */
-  RoleArn: string;
+  RoleArn?: string;
   /**
    * AWS service name for SigV4 signing
    * @minLength `1`
@@ -660,6 +665,10 @@ export type RegisteredMCPServerSigV4Details = {
    */
   Endpoint: string;
   /**
+   * IAM role ARN for SigV4 signing. Absent when no dedicated role is configured.
+   */
+  McpRoleArn?: string;
+  /**
    * The MCP server name
    */
   Name: string;
@@ -668,7 +677,7 @@ export type RegisteredMCPServerSigV4Details = {
    */
   Region: string;
   /**
-   * IAM role ARN for SigV4 signing
+   * Deprecated - use McpRoleArn instead. IAM role ARN for SigV4 signing
    */
   RoleArn: string;
   /**

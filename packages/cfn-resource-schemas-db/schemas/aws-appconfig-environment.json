@@ -1,6 +1,7 @@
 {
-  "$hash": "3c589e58345c703879aaabea31776565a9f51411",
+  "$hash": "f5edcae51f0282da75155059e67188bd6ddb83f7",
   "$id": "aws-appconfig-environment.json",
+  "additionalIdentifiers": [["/properties/ApplicationId", "/properties/Name"]],
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ApplicationId"],
   "definitions": {

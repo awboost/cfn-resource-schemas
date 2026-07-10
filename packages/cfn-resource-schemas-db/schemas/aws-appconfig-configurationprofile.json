@@ -1,6 +1,7 @@
 {
-  "$hash": "929971566765fbda00dd1a92b949f319ba7c0a0d",
+  "$hash": "53bcb52366ac7ef187c000e9f160dea82263dec0",
   "$id": "aws-appconfig-configurationprofile.json",
+  "additionalIdentifiers": [["/properties/ApplicationId", "/properties/Name"]],
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/LocationUri",

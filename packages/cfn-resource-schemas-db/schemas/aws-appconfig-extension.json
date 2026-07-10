@@ -1,5 +1,5 @@
 {
-  "$hash": "e3246360d62b957ddd36b0f50a8409725bdee662",
+  "$hash": "9c4a94c16587cb2d2ffcbc6863e5a0ec83d61329",
   "$id": "aws-appconfig-extension.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -86,6 +86,7 @@
       "permissions": [
         "appconfig:CreateExtension",
         "appconfig:TagResource",
+        "appconfig:GetExtension",
         "iam:PassRole"
       ]
     },

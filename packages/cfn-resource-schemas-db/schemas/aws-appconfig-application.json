@@ -1,6 +1,7 @@
 {
-  "$hash": "a2e8df1619e5cfaddb4b7dbf1bd968d5137e1248",
+  "$hash": "121916990b199e3ba953186729f80c91d60d1c15",
   "$id": "aws-appconfig-application.json",
+  "additionalIdentifiers": [["/properties/Name"]],
   "additionalProperties": false,
   "definitions": {
     "Tags": {

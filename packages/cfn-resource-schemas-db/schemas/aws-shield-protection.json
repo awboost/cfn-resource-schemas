@@ -1,5 +1,5 @@
 {
-  "$hash": "7d15b2e5d519dbd533566993e994cd0cad86ac5a",
+  "$hash": "a34e841ac877b33849d30f9fdd78dcd994d07c79",
   "$id": "aws-shield-protection.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/ResourceArn"],
@@ -161,7 +161,7 @@
   "required": ["Name", "ResourceArn"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-shield.git",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "shield:ListTagsForResource",
       "shield:UntagResource",
