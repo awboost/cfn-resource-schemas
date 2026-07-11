@@ -32,6 +32,11 @@ export type ConfigConformancePackProperties = {
    */
   DeliveryS3KeyPrefix?: string;
   /**
+   * The tags for the conformance pack.
+   * @maxLength `50`
+   */
+  Tags?: Tag[];
+  /**
    * A string containing full conformance pack template body. You can only specify one of the template body or template S3Uri fields.
    * @minLength `1`
    * @maxLength `51200`
@@ -61,6 +66,16 @@ export type ConfigConformancePackProperties = {
   };
 };
 /**
+ * Attribute type definition for `AWS::Config::ConformancePack`.
+ * @see {@link https://docs.aws.amazon.com/config/latest/developerguide/conformance-packs.html}
+ */
+export type ConfigConformancePackAttributes = {
+  /**
+   * Amazon Resource Name (ARN) of the conformance pack.
+   */
+  ConformancePackArn: string;
+};
+/**
  * Type definition for `AWS::Config::ConformancePack.ConformancePackInputParameter`.
  * Input parameters in the form of key-value pairs for the conformance pack.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-conformancepack-conformancepackinputparameter.html}
@@ -80,6 +95,25 @@ export type ConformancePackInputParameter = {
   ParameterValue: string;
 };
 /**
+ * Type definition for `AWS::Config::ConformancePack.Tag`.
+ * A key-value pair to associate with a resource.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-conformancepack-tag.html}
+ */
+export type Tag = {
+  /**
+   * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `1`
+   * @maxLength `128`
+   */
+  Key: string;
+  /**
+   * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
+   * @maxLength `256`
+   */
+  Value: string;
+};
+/**
  * Resource type definition for `AWS::Config::ConformancePack`.
  * A conformance pack is a collection of AWS Config rules and remediation actions that can be easily deployed as a single entity in an account and a region or across an entire AWS Organization.
  * @see {@link https://docs.aws.amazon.com/config/latest/developerguide/conformance-packs.html}
@@ -87,7 +121,7 @@ export type ConformancePackInputParameter = {
 export class ConfigConformancePack extends $Resource<
   "AWS::Config::ConformancePack",
   ConfigConformancePackProperties,
-  Record<string, never>
+  ConfigConformancePackAttributes
 > {
   public static readonly Type = "AWS::Config::ConformancePack";
   constructor(

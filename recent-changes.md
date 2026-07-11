@@ -1,18 +1,8 @@
-- updated `AWS::AppConfig::Application`
-  - added `additionalIdentifiers`
-- updated `AWS::AppConfig::ConfigurationProfile`
-  - added `additionalIdentifiers`
-- updated `AWS::AppConfig::Environment`
-  - added `additionalIdentifiers`
-- updated `AWS::AppConfig::Extension`
+- added `AWS::EC2::TransitGatewayPolicyTable`
+- updated `AWS::Config::ConformancePack`
+  - added `readOnlyProperties`
+  - added definition `Tag`
+  - added property `ConformancePackArn`
+  - added property `Tags`
+  - updated `tagging`
   - updated handler permissions
-- updated `AWS::DevOpsAgent::Service`
-  - updated definition `MCPServerSigV4AuthorizationConfig`
-  - updated definition `RegisteredMCPServerSigV4Details`
-  - updated handler permissions
-- updated `AWS::Pinpoint::InAppTemplate`
-  - updated `tagging`
-- updated `AWS::Shield::Protection`
-  - updated `tagging`
-- updated `AWS::Shield::ProtectionGroup`
-  - updated `tagging`
