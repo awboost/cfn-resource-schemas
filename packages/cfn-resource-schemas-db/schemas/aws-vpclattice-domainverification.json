@@ -1,5 +1,5 @@
 {
-  "$hash": "d6fdc478242dbc6d04a4449c7c52b105dc093a1e",
+  "$hash": "ccbd4e61308a6e9b27cbbca16d245567ffe11064",
   "$id": "aws-vpclattice-domainverification.json",
   "additionalIdentifiers": [["/properties/Id"], ["/properties/DomainName"]],
   "additionalProperties": false,
@@ -85,6 +85,7 @@
       "uniqueItems": true
     },
     "TxtMethodConfig": {
+      "additionalProperties": false,
       "properties": {
         "name": { "type": "string" },
         "value": { "type": "string" }

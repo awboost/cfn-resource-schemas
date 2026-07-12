@@ -1,8 +1,12 @@
-- added `AWS::EC2::TransitGatewayPolicyTable`
-- updated `AWS::Config::ConformancePack`
-  - added `readOnlyProperties`
-  - added definition `Tag`
-  - added property `ConformancePackArn`
-  - added property `Tags`
-  - updated `tagging`
-  - updated handler permissions
+- updated `AWS::Connect::EvaluationForm`
+  - updated definition `EvaluationFormMultiSelectQuestionOption`
+  - updated definition `EvaluationFormNumericQuestionOption`
+  - updated definition `EvaluationFormQuestionScoringConfiguration`
+  - updated definition `EvaluationFormQuestion`
+  - updated definition `EvaluationFormScoreThreshold`
+  - updated definition `EvaluationFormSection`
+  - updated definition `EvaluationFormSingleSelectQuestionOption`
+  - updated definition `QuestionOptionPointsConfiguration`
+  - updated definition `QuestionPointsConfiguration`
+- updated `AWS::VpcLattice::DomainVerification`
+  - updated property `TxtMethodConfig`

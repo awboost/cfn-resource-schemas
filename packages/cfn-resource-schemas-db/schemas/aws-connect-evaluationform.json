@@ -1,5 +1,5 @@
 {
-  "$hash": "d04f73d30156638e4da3b49f5dead396daf4f169",
+  "$hash": "cc2197c61f649a274d5b30861ab378d2d35a443b",
   "$id": "aws-connect-evaluationform.json",
   "additionalProperties": false,
   "definitions": {
@@ -225,20 +225,26 @@
       "additionalProperties": false,
       "description": "An option for a multi-select question in an evaluation form.",
       "properties": {
-        "AutomaticFail": { "description": "", "type": "boolean" },
+        "AutomaticFail": {
+          "description": "The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation gets a score of 0.",
+          "type": "boolean"
+        },
         "AutomaticFailConfiguration": {
           "$ref": "#/definitions/AutomaticFailConfiguration",
           "description": ""
         },
         "PointsConfiguration": {
           "$ref": "#/definitions/QuestionOptionPointsConfiguration",
-          "description": ""
+          "description": "The points configuration for point-based scoring."
         },
         "RefId": {
           "$ref": "#/definitions/RefId",
           "description": "Reference identifier for this option."
         },
-        "Score": { "$ref": "#/definitions/Score", "description": "" },
+        "Score": {
+          "$ref": "#/definitions/Score",
+          "description": "The score assigned to the answer option."
+        },
         "Text": {
           "description": "Display text for this option.",
           "maxLength": 128,
@@ -313,7 +319,7 @@
         },
         "PointsConfiguration": {
           "$ref": "#/definitions/QuestionOptionPointsConfiguration",
-          "description": ""
+          "description": "The points configuration for point-based scoring."
         },
         "Score": {
           "$ref": "#/definitions/Score",
@@ -391,7 +397,7 @@
         },
         "ScoringConfiguration": {
           "$ref": "#/definitions/EvaluationFormQuestionScoringConfiguration",
-          "description": ""
+          "description": "The scoring configuration of the question."
         },
         "Title": {
           "description": "The title of the question.\n *Length Constraints*: Minimum length of 1. Maximum length of 350.",
@@ -422,18 +428,18 @@
     },
     "EvaluationFormQuestionScoringConfiguration": {
       "additionalProperties": false,
-      "description": "",
+      "description": "Scoring configuration for a question in an evaluation form.",
       "properties": {
         "IsExcludedFromScoring": {
-          "description": "Whether the question is excluded from scoring.",
+          "description": "The flag to exclude the question from scoring.",
           "type": "boolean"
         },
         "PointsConfiguration": {
           "$ref": "#/definitions/QuestionPointsConfiguration",
-          "description": "The points configuration for the question."
+          "description": "The points configuration for point-based scoring."
         },
         "ScoreThresholds": {
-          "description": "The score thresholds for the question.",
+          "description": "The score thresholds for performance categories.",
           "items": { "$ref": "#/definitions/EvaluationFormScoreThreshold" },
           "type": "array"
         }
@@ -465,16 +471,16 @@
     },
     "EvaluationFormScoreThreshold": {
       "additionalProperties": false,
-      "description": "",
+      "description": "Information about a score threshold for a performance category.",
       "properties": {
         "MaxScorePercentage": {
-          "description": "The maximum score percentage for this threshold.",
+          "description": "The maximum score percentage for the performance category.",
           "maximum": 100,
           "minimum": 0,
           "type": "number"
         },
         "MinScorePercentage": {
-          "description": "The minimum score percentage for this threshold.",
+          "description": "The minimum score percentage for the performance category.",
           "maximum": 100,
           "minimum": 0,
           "type": "number"
@@ -497,7 +503,10 @@
           "maxLength": 1024,
           "type": "string"
         },
-        "IsExcludedFromScoring": { "description": "", "type": "boolean" },
+        "IsExcludedFromScoring": {
+          "description": "The flag to exclude the section from scoring.",
+          "type": "boolean"
+        },
         "Items": {
           "description": "The items of the section.\n *Minimum*: 1",
           "insertionOrder": true,
@@ -511,7 +520,7 @@
           "description": "The identifier of the section. An identifier must be unique within the evaluation form.\n *Length Constraints*: Minimum length of 1. Maximum length of 40."
         },
         "ScoreThresholds": {
-          "description": "",
+          "description": "The score thresholds for performance categories.",
           "items": { "$ref": "#/definitions/EvaluationFormScoreThreshold" },
           "type": "array"
         },
@@ -580,7 +589,7 @@
         },
         "PointsConfiguration": {
           "$ref": "#/definitions/QuestionOptionPointsConfiguration",
-          "description": ""
+          "description": "The points configuration for point-based scoring."
         },
         "RefId": {
           "$ref": "#/definitions/RefId",
@@ -769,15 +778,15 @@
     },
     "QuestionOptionPointsConfiguration": {
       "additionalProperties": false,
-      "description": "",
+      "description": "Information about the points configuration for an answer option.",
       "properties": {
         "IsBonus": {
-          "description": "Whether this option is a bonus. Note: Bonus options are not supported for multi-select questions. This property should only be set to true for single-select and numeric question options.",
+          "description": "The flag to mark the option as a bonus option.",
           "type": "boolean"
         },
         "PointValue": {
           "$ref": "#/definitions/PointValue",
-          "description": "The point value assigned to this option."
+          "description": "The point value assigned to the answer option."
         }
       },
       "required": ["PointValue"],
@@ -785,19 +794,19 @@
     },
     "QuestionPointsConfiguration": {
       "additionalProperties": false,
-      "description": "",
+      "description": "Information about the points configuration for a question.",
       "properties": {
         "IsBonus": {
-          "description": "Whether the question is a bonus question.",
+          "description": "The flag to mark the question as a bonus question.",
           "type": "boolean"
         },
         "MaxPointValue": {
           "$ref": "#/definitions/PointValue",
-          "description": "The maximum point value for the question."
+          "description": "The maximum point value."
         },
         "MinPointValue": {
           "$ref": "#/definitions/PointValue",
-          "description": "The minimum point value for the question."
+          "description": "The minimum point value."
         }
       },
       "type": "object"

@@ -274,11 +274,17 @@ export type EvaluationFormMultiSelectQuestionAutomationOption = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformmultiselectquestionoption.html}
  */
 export type EvaluationFormMultiSelectQuestionOption = {
+  /**
+   * The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation gets a score of 0.
+   */
   AutomaticFail?: boolean;
   /**
    * Information about automatic fail configuration for an evaluation form.
    */
   AutomaticFailConfiguration?: AutomaticFailConfiguration;
+  /**
+   * The points configuration for point-based scoring.
+   */
   PointsConfiguration?: QuestionOptionPointsConfiguration;
   /**
    * Reference identifier for this option.
@@ -286,7 +292,7 @@ export type EvaluationFormMultiSelectQuestionOption = {
    */
   RefId: string;
   /**
-   * The score of an answer option.
+   * The score assigned to the answer option.
    * @min `0`
    * @max `10`
    */
@@ -356,6 +362,9 @@ export type EvaluationFormNumericQuestionOption = {
    * The minimum answer value of the range option.
    */
   MinValue: number;
+  /**
+   * The points configuration for point-based scoring.
+   */
   PointsConfiguration?: QuestionOptionPointsConfiguration;
   /**
    * The score assigned to answer values within the range option.
@@ -431,6 +440,9 @@ export type EvaluationFormQuestion = {
    * @pattern `^[a-zA-Z0-9._-]{1,40}$`
    */
   RefId: string;
+  /**
+   * The scoring configuration of the question.
+   */
   ScoringConfiguration?: EvaluationFormQuestionScoringConfiguration;
   /**
    * The title of the question.
@@ -461,19 +473,20 @@ export type EvaluationFormQuestionAutomationAnswerSource = {
 };
 /**
  * Type definition for `AWS::Connect::EvaluationForm.EvaluationFormQuestionScoringConfiguration`.
+ * Scoring configuration for a question in an evaluation form.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformquestionscoringconfiguration.html}
  */
 export type EvaluationFormQuestionScoringConfiguration = {
   /**
-   * Whether the question is excluded from scoring.
+   * The flag to exclude the question from scoring.
    */
   IsExcludedFromScoring?: boolean;
   /**
-   * The points configuration for the question.
+   * The points configuration for point-based scoring.
    */
   PointsConfiguration?: QuestionPointsConfiguration;
   /**
-   * The score thresholds for the question.
+   * The score thresholds for performance categories.
    */
   ScoreThresholds?: EvaluationFormScoreThreshold[];
 };
@@ -502,17 +515,18 @@ export type EvaluationFormQuestionTypeProperties = {
 };
 /**
  * Type definition for `AWS::Connect::EvaluationForm.EvaluationFormScoreThreshold`.
+ * Information about a score threshold for a performance category.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformscorethreshold.html}
  */
 export type EvaluationFormScoreThreshold = {
   /**
-   * The maximum score percentage for this threshold.
+   * The maximum score percentage for the performance category.
    * @min `0`
    * @max `100`
    */
   MaxScorePercentage?: number;
   /**
-   * The minimum score percentage for this threshold.
+   * The minimum score percentage for the performance category.
    * @min `0`
    * @max `100`
    */
@@ -533,6 +547,9 @@ export type EvaluationFormSection = {
    * @maxLength `1024`
    */
   Instructions?: string;
+  /**
+   * The flag to exclude the section from scoring.
+   */
   IsExcludedFromScoring?: boolean;
   /**
    * The items of the section.
@@ -547,6 +564,9 @@ export type EvaluationFormSection = {
    * @pattern `^[a-zA-Z0-9._-]{1,40}$`
    */
   RefId: string;
+  /**
+   * The score thresholds for performance categories.
+   */
   ScoreThresholds?: EvaluationFormScoreThreshold[];
   /**
    * The title of the section.
@@ -614,6 +634,9 @@ export type EvaluationFormSingleSelectQuestionOption = {
    * Whether automatic fail is configured on a single select question.
    */
   AutomaticFailConfiguration?: AutomaticFailConfiguration;
+  /**
+   * The points configuration for point-based scoring.
+   */
   PointsConfiguration?: QuestionOptionPointsConfiguration;
   /**
    * The identifier of the answer option. An identifier must be unique within the question.
@@ -784,15 +807,16 @@ export type NumericQuestionPropertyValueAutomation = {
 };
 /**
  * Type definition for `AWS::Connect::EvaluationForm.QuestionOptionPointsConfiguration`.
+ * Information about the points configuration for an answer option.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-questionoptionpointsconfiguration.html}
  */
 export type QuestionOptionPointsConfiguration = {
   /**
-   * Whether this option is a bonus. Note: Bonus options are not supported for multi-select questions. This property should only be set to true for single-select and numeric question options.
+   * The flag to mark the option as a bonus option.
    */
   IsBonus?: boolean;
   /**
-   * The point value assigned to this option.
+   * The point value assigned to the answer option.
    * @min `0`
    * @max `100`
    */
@@ -800,21 +824,22 @@ export type QuestionOptionPointsConfiguration = {
 };
 /**
  * Type definition for `AWS::Connect::EvaluationForm.QuestionPointsConfiguration`.
+ * Information about the points configuration for a question.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-questionpointsconfiguration.html}
  */
 export type QuestionPointsConfiguration = {
   /**
-   * Whether the question is a bonus question.
+   * The flag to mark the question as a bonus question.
    */
   IsBonus?: boolean;
   /**
-   * The maximum point value for the question.
+   * The maximum point value.
    * @min `0`
    * @max `100`
    */
   MaxPointValue?: number;
   /**
-   * The minimum point value for the question.
+   * The minimum point value.
    * @min `0`
    * @max `100`
    */
